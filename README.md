@@ -1,2 +1,2 @@
-# IFExpressions
-Immediate Feedback for Expressions
+# IFTutor
+Drill for building comfort and confidence with Java expressions.
