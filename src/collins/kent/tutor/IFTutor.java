@@ -22,7 +22,7 @@ public class IFTutor {
 		ArrayList<Problem> correct = new ArrayList<>();
 
 		for (int i = 0; i < 10; i++) {
-			Problem p = new EasyMathProblem();
+			Problem p = new EasyDoubleMathProblem(Operator.DIV);
 			System.out.println(p);
 			String response = s.next().trim();
 			if (p.isCorrect(response)) {
