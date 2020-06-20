@@ -14,10 +14,6 @@ public abstract class Problem {
 	
 	Random random = new Random();
 	
-	public Problem() {
-		generate();
-	}
-	
 	boolean isCorrect(String response) {
 		return answer.equals(response);
 	}
