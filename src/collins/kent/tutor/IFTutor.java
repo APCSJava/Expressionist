@@ -1,6 +1,7 @@
 package collins.kent.tutor;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /***
@@ -11,44 +12,67 @@ import java.util.Scanner;
  *
  */
 
-public class IFTutor {
+public class IFTutor implements RandomSource {
 
 	static final Scanner s = new Scanner(System.in);
+	ArrayList<Problem> correct = new ArrayList<>();
+	ArrayList<Problem> toReview = new ArrayList<>();
+	ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were incorrect
+	Random random = new Random(); // we will distribute random numbers
+
+	public void ask(Problem p) {
+		System.out.println(p);
+		String response = s.next().trim();
+		if (p.isCorrect(response)) {
+			correct.add(p);
+		} else {
+			toReview.add(p);
+			System.out.println(p.getCorrection());
+		}
+		System.out.println("Number correct: " + correct.size());
+	}
+
+	@Override
+	public double nextDouble() {
+		return random.nextDouble();
+	}
+
+	@Override
+	public int nextInt() {
+		return random.nextInt();
+	}
+
+	@Override
+	public int nextInt(int max) {
+		return random.nextInt(max);
+	}
+
+	@Override
+	public boolean nextBoolean() {
+		return random.nextBoolean();
+	}
 
 	public static void main(String[] args) {
-		ArrayList<Problem> correct = new ArrayList<>();
-		ArrayList<Problem> toReview = new ArrayList<>();
-		ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were incorrect
+		IFTutor ift = new IFTutor();
+		ift.random.setSeed(1L);
 		for (int i = 0; i < 10; i++) {
 			Problem p = new IntegerComparisonProblem();
-			ask(p, correct, toReview);
+			ift.ask(p);
 		}
 		// recheck the items missed
-		while (toReview.size() != 0) {
-			Problem missed = toReview.remove(0);
-			reviewed.add(missed); // so can retrieve it later, for analysis
+		while (ift.toReview.size() != 0) {
+			Problem missed = ift.toReview.remove(0);
+			ift.reviewed.add(missed); // so can retrieve it later, for analysis
 			Class<? extends Problem> clazz = missed.getClass();
 			try {
-				ask(clazz.newInstance(), correct, toReview);
+				ift.ask(clazz.newInstance());
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Correct: " + correct.size() + "\tIncorrect: " + reviewed.size());
-	}
-
-	public static void ask(Problem p, ArrayList<Problem> correct, ArrayList<Problem> incorrect) {
-		System.out.println(p);
-		String response = s.next().trim();
-		if (p.isCorrect(response)) {
-			correct.add(p);
-		} else {
-			incorrect.add(p);
-			System.out.println(p.getCorrection());
-		}
-		System.out.println("Number correct: "+correct.size());
+		System.out.println("Correct: " + ift.correct.size() + "\tIncorrect: " + ift.reviewed.size());
 	}
 
 }
