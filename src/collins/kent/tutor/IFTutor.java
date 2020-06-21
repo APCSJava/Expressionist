@@ -1,9 +1,7 @@
 package collins.kent.tutor;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
-import static collins.kent.tutor.Operator.*;
 
 /***
  * Creates instant expressions for building student facility with reasoning
@@ -15,26 +13,44 @@ import static collins.kent.tutor.Operator.*;
 
 public class IFTutor {
 
-	private Random random = new Random();
+	static final Scanner s = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		ArrayList<Problem> incorrect = new ArrayList<>();
 		ArrayList<Problem> correct = new ArrayList<>();
-
+		ArrayList<Problem> toReview = new ArrayList<>();
+		ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were incorrect
 		for (int i = 0; i < 10; i++) {
-//			Problem p = Math.random() < 0.5 ? new DoubleArithmeticProblem(DIV) : new IntegerArithmeticProblem(DIV);
-			Problem p = new DivModByZeroProblem();
-			System.out.println(p);
-			String response = s.next().trim();
-			if (p.isCorrect(response)) {
-				correct.add(p);
-			} else {
-				incorrect.add(p);
-				System.out.println(p.getCorrection());
+			Problem p = new CastDoubleDividendToIntProblem();
+			ask(p, correct, toReview);
+		}
+		// recheck the items missed
+		while (toReview.size() != 0) {
+			Problem missed = toReview.remove(0);
+			reviewed.add(missed); // so can retrieve it later, for analysis
+			Class<? extends Problem> clazz = missed.getClass();
+			System.out.println("Reasking class " + clazz);
+			try {
+				ask(clazz.newInstance(), correct, toReview);
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
-		System.out.println("Correct: " + correct.size() + "\tIncorrect: " + incorrect.size());
+		System.out.println("Correct: " + correct.size() + "\tIncorrect: " + reviewed.size());
+	}
+
+	public static void ask(Problem p, ArrayList<Problem> correct, ArrayList<Problem> incorrect) {
+		System.out.println(p);
+		String response = s.next().trim();
+		if (p.isCorrect(response)) {
+			correct.add(p);
+		} else {
+			incorrect.add(p);
+			System.out.println(p.getCorrection());
+		}
 	}
 
 }
