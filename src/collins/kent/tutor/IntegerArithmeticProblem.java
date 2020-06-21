@@ -13,17 +13,17 @@ import static collins.kent.tutor.Operator.*;
  *
  */
 
-public class EasyIntegerMathProblem extends Problem {
+public class IntegerArithmeticProblem extends Problem {
 
 	int operandLeft = random.nextInt(10);
 	int operandRight = random.nextInt(10);
 	Operator operator = Operator.random(ARITHMETIC);
 
-	public EasyIntegerMathProblem() {
+	public IntegerArithmeticProblem() {
 		generate();
 	}
 
-	public EasyIntegerMathProblem(Operator op) {
+	public IntegerArithmeticProblem(Operator op) {
 		operator = op;
 		generate();
 	}
@@ -65,7 +65,7 @@ public class EasyIntegerMathProblem extends Problem {
 				correction = "Incorrect. Evaluating any number % 0 produces an exception.";
 				return "e";
 			}
-			// while modulo of negative number is allowed by Java, not gonna sweat it here.
+			// while modulo of negative integer is allowed by Java, not gonna sweat it here.
 			operandLeft = Math.abs(operandLeft);
 			operandRight = Math.abs(operandRight);
 			result = operandLeft % operandRight;

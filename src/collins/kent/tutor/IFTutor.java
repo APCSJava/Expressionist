@@ -3,6 +3,7 @@ package collins.kent.tutor;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import static collins.kent.tutor.Operator.*;
 
 /***
  * Creates instant expressions for building student facility with reasoning
@@ -22,7 +23,7 @@ public class IFTutor {
 		ArrayList<Problem> correct = new ArrayList<>();
 
 		for (int i = 0; i < 10; i++) {
-			Problem p = new EasyDoubleMathProblem(Operator.DIV);
+			Problem p = Math.random() < 1.0 ? new DoubleArithmeticProblem(DIV) : new IntegerArithmeticProblem();
 			System.out.println(p);
 			String response = s.next().trim();
 			if (p.isCorrect(response)) {
@@ -32,7 +33,7 @@ public class IFTutor {
 				System.out.println(p.getCorrection());
 			}
 		}
-		System.out.println("Correct: "+correct.size()+"\tIncorrect: "+incorrect.size());
+		System.out.println("Correct: " + correct.size() + "\tIncorrect: " + incorrect.size());
 	}
 
 }
