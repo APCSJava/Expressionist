@@ -12,14 +12,14 @@ import java.util.Random;
  */
 public enum Operator {
 
-	ADD, SUB, MULT, DIV, MOD, AND, OR, LT, LTE, GT, GTE, EQUAL, ASSIGN, ADD_ASSIGN, DIV_ASSIGN, MULT_ASSIGN, SUB_ASSIGN,
+	ADD, SUB, MULT, DIV, MOD, AND, OR, LT, LTE, GT, GTE, NOT_EQUAL, EQUAL, ASSIGN, ADD_ASSIGN, DIV_ASSIGN, MULT_ASSIGN, SUB_ASSIGN,
 	MOD_ASSIGN;
 
 	public static final List<Operator> LOGICAL = Arrays.asList(new Operator[] { AND, OR });
 	public static final List<Operator> ARITHMETIC = Arrays.asList(new Operator[] { ADD, SUB, MULT, DIV, MOD });
 	public static final List<Operator> COMPOUND = Arrays
 			.asList(new Operator[] { ADD_ASSIGN, DIV_ASSIGN, MULT_ASSIGN, SUB_ASSIGN, MOD_ASSIGN });
-	public static final List<Operator> COMPARISON = Arrays.asList(new Operator[] { LT, LTE, GT, GTE, EQUAL });
+	public static final List<Operator> COMPARISON = Arrays.asList(new Operator[] { LT, LTE, GT, GTE, NOT_EQUAL, EQUAL });
 	
 	public static Random random = new Random();
 
@@ -51,6 +51,8 @@ public enum Operator {
 			return ">";
 		case GTE:
 			return ">=";
+		case NOT_EQUAL:
+			return "!=";
 		case EQUAL:
 			return "==";
 		case ASSIGN:
