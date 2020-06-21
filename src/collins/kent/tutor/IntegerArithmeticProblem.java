@@ -54,18 +54,18 @@ public class IntegerArithmeticProblem extends Problem {
 			result = operandLeft * operandRight;
 			break;
 		case DIV:
+			// check corner cases with separate class of problem; here, simply avoid
 			if (operandRight == 0) {
-				correction = "Incorrect. Division by zero will be caught be the compiler.";
-				return "e";
+				operandRight+=2;
 			}
 			result = operandLeft / operandRight;
 			break;
 		case MOD:
+			// check corner cases with separate class of problem; here, simply avoid
 			if (operandRight == 0) {
-				correction = "Incorrect. Evaluating any number % 0 produces an exception.";
-				return "e";
+				operandRight+=2;
 			}
-			// while modulo of negative integer is allowed by Java, not gonna sweat it here.
+			// while modulo of negative integers is allowed by Java, not gonna sweat it here.
 			operandLeft = Math.abs(operandLeft);
 			operandRight = Math.abs(operandRight);
 			result = operandLeft % operandRight;
