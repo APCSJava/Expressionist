@@ -24,7 +24,7 @@ public class IFTutor {
 
 		for (int i = 0; i < 10; i++) {
 //			Problem p = Math.random() < 0.5 ? new DoubleArithmeticProblem(DIV) : new IntegerArithmeticProblem(DIV);
-			Problem p = new MixedArithmeticProblem();
+			Problem p = new DivModByZeroProblem();
 			System.out.println(p);
 			String response = s.next().trim();
 			if (p.isCorrect(response)) {
