@@ -23,7 +23,8 @@ public class IFTutor {
 		ArrayList<Problem> correct = new ArrayList<>();
 
 		for (int i = 0; i < 10; i++) {
-			Problem p = Math.random() < 1.0 ? new DoubleArithmeticProblem(DIV) : new IntegerArithmeticProblem();
+//			Problem p = Math.random() < 0.5 ? new DoubleArithmeticProblem(DIV) : new IntegerArithmeticProblem(DIV);
+			Problem p = new MixedArithmeticProblem();
 			System.out.println(p);
 			String response = s.next().trim();
 			if (p.isCorrect(response)) {
