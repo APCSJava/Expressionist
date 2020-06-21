@@ -22,5 +22,23 @@ public class CastIntDividendToDoubleProblem extends Problem {
 		this.answer = p.answer;
 		this.correction = "Incorrect.  Due to precedence, double division is performed.";
 	}
+	
+	/**
+	 * Now that we have a response available, override is correct and modify our
+	 * correction string, if needed.
+	 */
+	@Override
+	boolean isCorrect(String response) {
+		if (!response.equals(this.answer)) {
+			try {
+				Integer.parseInt(response);
+				// we got an int and should have been a double -- let original correction stand
+			} catch (NumberFormatException e) {
+				// was not an int and should have been -- let original correction stand
+				this.correction = "Incorrect value.  The double " + this.answer +" was expected.";
+			}
+		}
+		return super.isCorrect(response);
+	}
 
 }

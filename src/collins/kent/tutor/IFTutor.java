@@ -19,8 +19,8 @@ public class IFTutor {
 		ArrayList<Problem> correct = new ArrayList<>();
 		ArrayList<Problem> toReview = new ArrayList<>();
 		ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were incorrect
-		for (int i = 0; i < 10; i++) {
-			Problem p = new CastDoubleDividendToIntProblem();
+		for (int i = 0; i < 5; i++) {
+			Problem p = new MixedArithmeticProblem();
 			ask(p, correct, toReview);
 		}
 		// recheck the items missed
@@ -28,7 +28,7 @@ public class IFTutor {
 			Problem missed = toReview.remove(0);
 			reviewed.add(missed); // so can retrieve it later, for analysis
 			Class<? extends Problem> clazz = missed.getClass();
-			System.out.println("Reasking class " + clazz);
+//			System.out.println("Reasking class " + clazz);
 			try {
 				ask(clazz.newInstance(), correct, toReview);
 			} catch (InstantiationException e) {

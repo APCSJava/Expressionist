@@ -42,5 +42,24 @@ public class MixedArithmeticProblem extends Problem {
 			return left + right;
 		}
 	}
+	
+	/**
+	 * Now that we have a response available, override is correct and modify our
+	 * correction string, if needed.
+	 */
+	@Override
+	boolean isCorrect(String response) {
+		if (!response.equals(this.answer)) {
+			try {
+				Integer.parseInt(response);
+				// we got an int and should have been a double
+				this.correction = "Incorrect.  That's not the right type. A double was expected.";
+			} catch (NumberFormatException e) {
+				// got a double, so the value must be wrong
+				this.correction = "Incorrect value.  The double " + this.answer +" was expected.";
+			}
+		}
+		return super.isCorrect(response);
+	}
 
 }
