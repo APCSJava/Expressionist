@@ -12,9 +12,7 @@ public interface Problem {
 
 	String getAnswer();
 
-	default Problem generate(java.util.Random rng) {
-		return this;
-	}
+	Problem generate(java.util.Random rng);
 
 	default boolean isCorrect(String response) {
 		return getAnswer().equals(response);
