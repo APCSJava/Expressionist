@@ -2,7 +2,7 @@ package collins.kent.tutor;
 
 import java.util.Random;
 
-public class SimpleLogicalOperatorProblem implements Problem {
+public class SimpleAndOrLogicalProblem implements Problem {
 
 	boolean left;
 	boolean right;
