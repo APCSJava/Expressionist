@@ -7,11 +7,11 @@ public class Tester {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		for (int i = 0; i < 5; i++) {
-			Problem p = new DoubleDivisionProblem();
+			Problem p = new IntegerModuloZeroProblem();
 			p.generate(new Random());
 			System.out.println(p.getStatement());
 			String response = s.nextLine();
-			System.out.println(p.getCorrection(response));
+			System.out.println(p.getFeedback(response));
 		}
 		s.close();
 	}

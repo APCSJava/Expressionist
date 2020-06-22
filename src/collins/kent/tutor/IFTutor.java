@@ -13,6 +13,8 @@ import java.util.Scanner;
  */
 
 public class IFTutor {
+	
+	public static final String ERROR = "e";
 
 	static final Scanner s = new Scanner(System.in);
 	ArrayList<Problem> correct = new ArrayList<>();
@@ -27,7 +29,7 @@ public class IFTutor {
 			correct.add(p);
 		} else {
 			toReview.add(p);
-			System.out.println(p.getCorrection(response));
+			System.out.println(p.getFeedback(response));
 		}
 		System.out.println("Number correct: " + correct.size());
 	}
@@ -43,9 +45,9 @@ public class IFTutor {
 		while (ift.toReview.size() != 0) {
 			Problem missed = ift.toReview.remove(0);
 			ift.reviewed.add(missed); // so can retrieve it later, for analysis
-			Class<? extends Problem> clazz = missed.getClass();
+			Class<? extends Problem> c = missed.getClass();
 			try {
-				ift.ask(clazz.newInstance().generate(ift.random));
+				ift.ask(c.newInstance().generate(ift.random));
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
@@ -53,6 +55,14 @@ public class IFTutor {
 			}
 		}
 		System.out.println("Correct: " + ift.correct.size() + "\tIncorrect: " + ift.reviewed.size());
+	}
+
+	public static String getExceptionSymbol() {
+		return "e";
+	}
+
+	public static String getErrorSymbol() {
+		return "e";
 	}
 
 }

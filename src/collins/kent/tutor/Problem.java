@@ -8,17 +8,17 @@ package collins.kent.tutor;
 
 public interface Problem {
 
+	Problem generate(java.util.Random rng);
+
 	String getStatement();
 
 	String getAnswer();
-
-	Problem generate(java.util.Random rng);
 
 	default boolean isCorrect(String response) {
 		return getAnswer().equals(response);
 	}
 
-	default String getCorrection(String response) {
+	default String getFeedback(String response) {
 		if (isCorrect(response)) {
 			return "Correct";
 		}
