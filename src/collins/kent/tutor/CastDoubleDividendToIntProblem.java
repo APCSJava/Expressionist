@@ -1,6 +1,6 @@
 package collins.kent.tutor;
 
-import static collins.kent.tutor.Operator.DIV;
+import java.util.Random;
 
 /***
  * Provides practice evaluating arithmetic problems where the left operand is
@@ -10,33 +10,50 @@ import static collins.kent.tutor.Operator.DIV;
  *
  */
 
-public class CastDoubleDividendToIntProblem implements Generator {
+public class CastDoubleDividendToIntProblem implements Problem {
 
-	public CastDoubleDividendToIntProblem() {
-		// get integer division problem but replace left operand with cast double
-		IntegerAdditionProblem p = new IntegerAdditionProblem(DIV);
-		String[] pieces = p.statement.split(" ");
-		pieces[0] = "(int) " + pieces[0] + ".0";
-		this.statement = String.join(" ", pieces);
-		this.answer = p.answer;
-		this.correction = "Incorrect.  Due to precedence, integer division is performed.";
+	Problem original;
+	String revisedStatement;
+
+	@Override
+	public Problem generate(Random rng) {
+		/* integer division needs to be performed, so start with an integer problem */
+		original = new IntegerDivisionProblem();
+		original.generate(rng);
+		// modify dividend to incorporate the cast
+		String[] parts = original.getStatement().split(" ");
+		String first = "(int) " + parts[0] +".0 ";
+		// assemble revised statement that displays both operands as integers
+		revisedStatement = first + parts[1]+" "+parts[2];
+		return this;
 	}
 
-	/**
-	 * Now that we have a response available, override is correct and modify our
-	 * correction string, if needed.
-	 */
 	@Override
-	boolean isCorrect(String response) {
-		if (!response.equals(this.answer)) {
-			try {
-				Integer.parseInt(response);
-				// we got an int, so type is correct, must be wrong value
-				this.correction = "Incorrect value.  The integer " + this.answer +" was expected.";
-			} catch (NumberFormatException e) {
-				// was not an int and should have been -- let original correction stand
+	public String getStatement() {
+		return revisedStatement;
+	}
+
+	@Override
+	public String getAnswer() {
+		return original.getAnswer();
+	}
+
+	@Override
+	public boolean isCorrect(String response) {
+		return original.isCorrect(response);
+	}
+
+	@Override
+	public String getFeedback(String response) {
+		if (isCorrect(response)) {
+			return original.getFeedback(response);
+		} else {
+			// if answer came as double, remind
+			if (response.indexOf(".") != -1) {
+				return "Incorrect.  Due to precedence, integer division is performed, producing the value " + original.getAnswer();
 			}
+			// they gave an integer, just the wrong one
+			return "Incorrect.  The correct answer is " + original.getAnswer();
 		}
-		return super.isCorrect(response);
 	}
 }
