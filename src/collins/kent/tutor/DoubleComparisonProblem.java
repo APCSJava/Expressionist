@@ -3,25 +3,35 @@ package collins.kent.tutor;
 import java.util.Random;
 
 /***
- * Produces a problem involving comparisons of integer values.
+ * Produces a problem involving comparisons of double values. Avoids checking
+ * for equality/inequality (<=, >=, ==, !=) as equality operations are
+ * problematic for floating point. (0.1 + 0.2 == 0.3)
  * 
  * @author k. collins
  *
  */
 
-public class IntegerComparisonProblem implements Problem {
+public class DoubleComparisonProblem implements Problem {
 
-	int leftOperand;
-	int rightOperand;
+	double leftOperand;
+	double rightOperand;
 	Operator op;
 
 	public Problem generate(Random rng) {
 		leftOperand = rng.nextInt(5);
-		// provide slight bias towards same so GTE, LTE and == are relevant
-		rightOperand = rng.nextDouble() < 0.2 ? leftOperand : rng.nextInt(5);
-		int opIndex = rng.nextInt(Operator.COMPARISON.size());
-		op = Operator.COMPARISON.get(opIndex);
+		rightOperand = rng.nextInt(5);
+		Operator selected = chooseOperator(rng);
+		while (selected == Operator.EQUAL || selected == Operator.NOT_EQUAL || selected == Operator.GTE
+				|| selected == Operator.LTE) {
+			selected = chooseOperator(rng);
+		}
+		op = selected;
 		return this;
+	}
+
+	private Operator chooseOperator(Random rng) {
+		int opIndex = rng.nextInt(Operator.COMPARISON.size());
+		return Operator.COMPARISON.get(opIndex);
 	}
 
 	private boolean result(Operator op) {
@@ -38,12 +48,6 @@ public class IntegerComparisonProblem implements Problem {
 			break;
 		case GTE:
 			result = leftOperand >= rightOperand;
-			break;
-		case EQUAL:
-			result = leftOperand == rightOperand;
-			break;
-		case NOT_EQUAL:
-			result = leftOperand != rightOperand;
 			break;
 		}
 		return result;

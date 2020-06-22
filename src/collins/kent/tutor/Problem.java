@@ -1,48 +1,29 @@
 package collins.kent.tutor;
 
 /***
- * Root of all problems.
+ * Inteface for the root of all problems.
  * 
  * @author k. collins
  */
 
-public abstract class Problem {
-	
-	String statement;
-	String answer;
-	String correction;
-		
-	boolean isCorrect(String response) {
-		return answer.equals(response);
+public interface Problem {
+
+	String getStatement();
+
+	String getAnswer();
+
+	default Problem generate(java.util.Random rng) {
+		return this;
 	}
 
-	@Override
-	public String toString() {
-		return statement;
+	default boolean isCorrect(String response) {
+		return getAnswer().equals(response);
 	}
 
-	public String getStatement() {
-		return statement;
+	default String getCorrection(String response) {
+		if (isCorrect(response)) {
+			return "Correct";
+		}
+		return "Incorrect.  The correct answer is " + getAnswer();
 	}
-
-	public void setStatement(String statement) {
-		this.statement = statement;
-	}
-
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
-	public void setCorrection(String correction) {
-		this.correction = correction;
-	}
-
-	String getCorrection() {
-		return correction;
-	}
-	
 }

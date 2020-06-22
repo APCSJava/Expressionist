@@ -10,11 +10,11 @@ import static collins.kent.tutor.Operator.DIV;
  *
  */
 
-public class CastDoubleDividendToIntProblem extends Problem {
+public class CastDoubleDividendToIntProblem implements Generator {
 
 	public CastDoubleDividendToIntProblem() {
 		// get integer division problem but replace left operand with cast double
-		IntegerArithmeticProblem p = new IntegerArithmeticProblem(DIV);
+		IntegerAdditionProblem p = new IntegerAdditionProblem(DIV);
 		String[] pieces = p.statement.split(" ");
 		pieces[0] = "(int) " + pieces[0] + ".0";
 		this.statement = String.join(" ", pieces);

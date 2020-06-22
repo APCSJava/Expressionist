@@ -12,51 +12,31 @@ import java.util.Scanner;
  *
  */
 
-public class IFTutor implements RandomSource {
+public class IFTutor {
 
 	static final Scanner s = new Scanner(System.in);
 	ArrayList<Problem> correct = new ArrayList<>();
 	ArrayList<Problem> toReview = new ArrayList<>();
 	ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were incorrect
-	Random random = new Random(); // we will distribute random numbers
+	Random random = new Random(); // central source for random numbers
 
 	public void ask(Problem p) {
-		System.out.println(p);
+		System.out.println(p.getStatement());
 		String response = s.next().trim();
 		if (p.isCorrect(response)) {
 			correct.add(p);
 		} else {
 			toReview.add(p);
-			System.out.println(p.getCorrection());
+			System.out.println(p.getCorrection(response));
 		}
 		System.out.println("Number correct: " + correct.size());
-	}
-
-	@Override
-	public double nextDouble() {
-		return random.nextDouble();
-	}
-
-	@Override
-	public int nextInt() {
-		return random.nextInt();
-	}
-
-	@Override
-	public int nextInt(int max) {
-		return random.nextInt(max);
-	}
-
-	@Override
-	public boolean nextBoolean() {
-		return random.nextBoolean();
 	}
 
 	public static void main(String[] args) {
 		IFTutor ift = new IFTutor();
 		ift.random.setSeed(1L);
 		for (int i = 0; i < 10; i++) {
-			Problem p = new IntegerComparisonProblem();
+			Problem p = new RandomDoubleArithmeticProblem().generate(ift.random);
 			ift.ask(p);
 		}
 		// recheck the items missed
@@ -65,7 +45,7 @@ public class IFTutor implements RandomSource {
 			ift.reviewed.add(missed); // so can retrieve it later, for analysis
 			Class<? extends Problem> clazz = missed.getClass();
 			try {
-				ift.ask(clazz.newInstance());
+				ift.ask(clazz.newInstance().generate(ift.random));
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
