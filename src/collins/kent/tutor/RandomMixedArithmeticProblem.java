@@ -21,6 +21,7 @@ public class RandomMixedArithmeticProblem implements Problem {
 	public Problem generate(Random rng) {
 		// grab a double problem and randomly remove a .0 from an operand
 		original = new RandomDoubleArithmeticProblem();
+		original.generate(rng);
 		String s = original.getStatement();
 		if (rng.nextDouble() < 0.5) {
 			int firstDotLoc = s.indexOf(".0");
@@ -42,6 +43,10 @@ public class RandomMixedArithmeticProblem implements Problem {
 	@Override
 	public String getAnswer() {
 		return original.getAnswer();
+	}
+	
+	public boolean isCorrect(String response) {
+		return original.isCorrect(response);
 	}
 
 }

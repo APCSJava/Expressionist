@@ -42,6 +42,11 @@ public class RandomDoubleArithmeticProblem implements Problem {
 	public String getAnswer() {
 		return actual.getAnswer();
 	}
+	
+	@Override
+	public boolean isCorrect(String response) {
+		return actual.isCorrect(response);
+	}
 
 	public Class<? extends Problem> getInstantiatedClass() {
 		return actual.getClass();
