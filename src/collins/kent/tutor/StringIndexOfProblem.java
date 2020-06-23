@@ -16,7 +16,7 @@ public class StringIndexOfProblem implements Problem {
 	@Override
 	public Problem generate(Random rng) {
 		StringSource source = StringSource.getInstance();
-		this.word = source.getRandomWord();
+		this.word = source.getRandomWord(rng.nextDouble());
 		int length = word.length();
 		this.index = rng.nextInt(length);
 		return this;
