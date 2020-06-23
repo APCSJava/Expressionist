@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class Tester {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		Random r = new Random(5);
-		StringSource.getInstance();
+		Random r = new Random(7);
 		for (int i = 0; i < 5; i++) {
 			Problem p = new StringIndexOfProblem();
 			p.generate(r);

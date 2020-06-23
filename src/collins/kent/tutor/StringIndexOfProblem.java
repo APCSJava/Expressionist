@@ -11,25 +11,28 @@ import java.util.Random;
 public class StringIndexOfProblem implements Problem {
 	
 	String word;
+	String chosenLetter;
 	private int index;
 
 	@Override
 	public Problem generate(Random rng) {
 		StringSource source = StringSource.getInstance();
-		this.word = source.getRandomWord(rng.nextDouble());
-		int length = word.length();
-		this.index = rng.nextInt(length);
+		word = source.getRandomWord(rng);
+		index = rng.nextInt(word.length());
+		chosenLetter = word.substring(index, index+1);
 		return this;
 	}
 
 	@Override
 	public String getStatement() {
-				return "\""+word+"\"."+"indexOf(\""+word.charAt(index)+"\");";
+				return "\""+word+"\"."+"indexOf(\""+chosenLetter+"\");";
 	}
 
 	@Override
 	public String getAnswer() {
-		return Integer.toString(index);
+		// doesn't work if builds off the last occurrence of a repeated letter
+		// return Integer.toString(index);
+		return Integer.toString(word.indexOf(chosenLetter));
 	}
 
 }

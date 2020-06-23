@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 /***
- * Singleton instance used as a word source. Requests are made with a random
- * number to keep this class from needing its own random number source.
+ * Singleton instance used as a source of words and phrases. 
  * 
  * @author k. collins
  *
@@ -26,15 +25,15 @@ public final class StringSource {
 		return instance;
 	}
 
-	List<String> words = Arrays.asList(new String[] { "quick", "terminator" });
-	List<String> phrases = Arrays.asList(new String[] { "Love's Labours Lost", "Hello, World!" });
+	List<String> words = Arrays.asList(new String[] { "quick", "terminator", "start" });
+	List<String> phrases = Arrays.asList(new String[] { "Love's Labours Lost", "Hello, World!", "Let's go.", "Just do it!" });
 
-	String getRandomWord(double rand) {
-		return words.get(map(rand, words.size()));
+	String getRandomWord(Random random) {
+		return words.get(random.nextInt(words.size()));
 	}
-	
+
 	int map(double d, int range) {
-		return (int) (d*range);
+		return (int) (d * range);
 	}
 
 }
