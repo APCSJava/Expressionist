@@ -30,11 +30,12 @@ public final class StringSource {
 		this.random = random;
 	}
 	
-	List<String> wordbank = Arrays.asList(new String[] {"The quick brown fox.", "terminator"});
+	List<String> words = Arrays.asList(new String[] {"quick", "terminator"});
+	List<String> phrases = Arrays.asList(new String[] {"Love's Labours Lost", "Hello, World!"});
 	
 	String getRandomWord() {
 		if (random == null) throw new UnsupportedOperationException("Random number generator not set.");
-		return wordbank.get(random.nextInt(wordbank.size()));
+		return words.get(random.nextInt(words.size()));
 	}
 
 }

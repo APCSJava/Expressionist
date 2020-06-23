@@ -9,7 +9,7 @@ public class Tester {
 		Random rand = new Random(5);
 		StringSource.getInstance().setRandom(rand);
 		for (int i = 0; i < 5; i++) {
-			Problem p = new SimpleNotLogicalProblem();
+			Problem p = new StringIndexOfProblem();
 			p.generate(rand);
 			System.out.println(p.getStatement());
 			String response = s.nextLine();
