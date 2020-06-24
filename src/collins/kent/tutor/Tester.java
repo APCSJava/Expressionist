@@ -6,13 +6,15 @@ import java.util.Scanner;
 public class Tester {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		Random r = new Random(7);
-		for (int i = 0; i < 5; i++) {
-			Problem p = new StringSimpleLengthOfSubstringProblem();
+		Random r = new Random();
+		for (int i = 0; i < 10; i++) {
+			Problem p = new SubstringSingleIndexProblem();
 			p.generate(r);
 			System.out.println(p.getStatement());
 			String response = s.nextLine();
-			System.out.println(p.getFeedback(response));
+			if (!p.isCorrect(response)) {
+				System.out.println(p.getFeedback(response));
+			}
 		}
 		s.close();
 	}
