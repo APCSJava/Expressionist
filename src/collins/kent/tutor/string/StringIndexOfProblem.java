@@ -6,7 +6,7 @@ import collins.kent.tutor.Problem;
 
 /***
  * Produces a problem involving a random word and a random letter sequence that
- * may appear as a substring.
+ * may appear as a substring using .indexOf
  * 
  * @author k. collins
  *
@@ -42,7 +42,8 @@ public class StringIndexOfProblem implements Problem {
 	}
 	
 	private String getOneToThreeLetterSubstring(Random rng, String s) {
-		int numLetters = rng.nextInt(2)+1;// in the range [1, 3]
+		// pick one to three letters, if word is long enough
+		int numLetters = Math.min(rng.nextInt(3)+1, s.length());
 		int start = rng.nextInt(s.length()-numLetters);
 		return s.substring(start, start+numLetters);
 	}
