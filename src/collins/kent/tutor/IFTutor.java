@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.arithmetic.RandomDoubleArithmeticProblem;
+import collins.kent.tutor.string.StringCompareToProblem;
 
 /***
  * Creates instant expressions for building student facility with reasoning
@@ -40,7 +40,7 @@ public class IFTutor {
 		IFTutor ift = new IFTutor();
 		ift.random.setSeed(1L);
 		for (int i = 0; i < 10; i++) {
-			Problem p = new RandomDoubleArithmeticProblem().generate(ift.random);
+			Problem p = new StringCompareToProblem().generate(ift.random);
 			ift.ask(p);
 		}
 		// recheck the items missed
