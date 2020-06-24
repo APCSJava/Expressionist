@@ -47,7 +47,7 @@ public class RandomStringProblem implements Problem {
 	public String getAnswer() {
 		return actual.getAnswer();
 	}
-	
+
 	public Class<? extends Problem> getInstantiatedClass() {
 		return actual.getClass();
 	}

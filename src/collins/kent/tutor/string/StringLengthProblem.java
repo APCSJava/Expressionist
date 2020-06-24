@@ -10,20 +10,19 @@ import collins.kent.tutor.Problem;
  * @author kentcollins
  *
  */
-public class StringLengthProblem
-		implements Problem {
+public class StringLengthProblem implements Problem {
 
 	String s;
 
 	@Override
 	public Problem generate(Random rng) {
-		s=StringSource.getInstance().getRandomWord(rng, 3, 7);
+		s = StringSource.getInstance().getRandomWord(rng, 3, 7);
 		return this;
 	}
 
 	@Override
 	public String getStatement() {
-		String question = "\""+s+"\".length()";
+		String question = "\"" + s + "\".length()";
 		return question;
 	}
 

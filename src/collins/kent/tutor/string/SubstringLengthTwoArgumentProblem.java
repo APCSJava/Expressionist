@@ -1,8 +1,6 @@
 package collins.kent.tutor.string;
 
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import collins.kent.tutor.Problem;
 
@@ -13,8 +11,7 @@ import collins.kent.tutor.Problem;
  * @author kentcollins
  *
  */
-public class SubstringLengthTwoArgumentProblem
-		implements Problem {
+public class SubstringLengthTwoArgumentProblem implements Problem {
 
 	String s;
 	int from;
@@ -22,15 +19,16 @@ public class SubstringLengthTwoArgumentProblem
 
 	@Override
 	public Problem generate(Random rng) {
-		s=StringSource.getInstance().getRandomWord(rng, 4, 10);
+		s = StringSource.getInstance().getRandomWord(rng, 4, 10);
 		from = rng.nextInt(s.length());
-		to = from + rng.nextInt(s.length()-from);
+		to = from + rng.nextInt(s.length() - from);
 		return this;
 	}
 
 	@Override
 	public String getStatement() {
-		String question ="\""+s+"\".substring("+from+", "+to+").length()";
+		String question = "\"" + s + "\".substring(" + from + ", "
+				+ to + ").length()";
 		return question;
 	}
 

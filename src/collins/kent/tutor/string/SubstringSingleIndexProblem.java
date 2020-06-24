@@ -1,8 +1,6 @@
 package collins.kent.tutor.string;
 
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import collins.kent.tutor.Problem;
 
@@ -20,8 +18,8 @@ public class SubstringSingleIndexProblem implements Problem {
 
 	@Override
 	public Problem generate(Random rng) {
-		s=StringSource.getInstance().getRandomWord(rng, 3, 6);
-		from = rng.nextInt(s.length()+1); // want to include final index
+		s = StringSource.getInstance().getRandomWord(rng, 3, 6);
+		from = rng.nextInt(s.length() + 1); // want to include final index
 		return this;
 	}
 
