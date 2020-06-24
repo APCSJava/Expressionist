@@ -8,7 +8,7 @@ public class Tester {
 		Scanner s = new Scanner(System.in);
 		Random r = new Random(7);
 		for (int i = 0; i < 5; i++) {
-			Problem p = new StringIndexOfProblem();
+			Problem p = new StringSimpleLengthOfSubstringProblem();
 			p.generate(r);
 			System.out.println(p.getStatement());
 			String response = s.nextLine();
