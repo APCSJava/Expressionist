@@ -14,7 +14,7 @@ import collins.kent.tutor.Problem;
  *
  */
 
-public class RandomMixedArithmeticProblem implements Problem {
+public class MixedTypeArithmeticProblem implements Problem {
 	
 	Problem original;
 	String revisedStatement;
