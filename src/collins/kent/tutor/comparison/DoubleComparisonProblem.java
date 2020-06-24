@@ -1,6 +1,9 @@
-package collins.kent.tutor;
+package collins.kent.tutor.comparison;
 
 import java.util.Random;
+
+import collins.kent.tutor.Operator;
+import collins.kent.tutor.Problem;
 
 /***
  * Produces a problem involving comparisons of double values. Avoids checking

@@ -1,6 +1,8 @@
-package collins.kent.tutor;
+package collins.kent.tutor.arithmetic;
 
 import java.util.Random;
+
+import collins.kent.tutor.Problem;
 
 /***
  * Mixed arithmetic problems involve one int operand and one double operand.

@@ -21,7 +21,7 @@ public enum Operator {
 			.asList(new Operator[] { ADD_ASSIGN, DIV_ASSIGN, MULT_ASSIGN, SUB_ASSIGN, MOD_ASSIGN });
 	public static final List<Operator> COMPARISON = Arrays.asList(new Operator[] { LT, LTE, GT, GTE, NOT_EQUAL, EQUAL });
 	
-	static String symbol(Operator op) {
+	public static String symbol(Operator op) {
 		switch (op) {
 		case ADD:
 			return "+";

@@ -1,6 +1,8 @@
-package collins.kent.tutor;
+package collins.kent.tutor.logical;
 
 import java.util.Random;
+
+import collins.kent.tutor.Problem;
 
 public class SimpleNotLogicalProblem implements Problem {
 

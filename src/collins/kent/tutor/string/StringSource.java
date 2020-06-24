@@ -1,4 +1,4 @@
-package collins.kent.tutor;
+package collins.kent.tutor.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;

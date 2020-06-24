@@ -1,6 +1,9 @@
-package collins.kent.tutor;
+package collins.kent.tutor.arithmetic;
 
 import java.util.Random;
+
+import collins.kent.tutor.IFTutor;
+import collins.kent.tutor.Problem;
 
 public class IntegerDivisionByZeroProblem implements Problem {
 

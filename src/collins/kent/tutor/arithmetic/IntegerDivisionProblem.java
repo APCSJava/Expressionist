@@ -1,6 +1,8 @@
-package collins.kent.tutor;
+package collins.kent.tutor.arithmetic;
 
 import java.util.Random;
+
+import collins.kent.tutor.Problem;
 
 /***
  * Produces integer division problems. Avoids dividing by zero.

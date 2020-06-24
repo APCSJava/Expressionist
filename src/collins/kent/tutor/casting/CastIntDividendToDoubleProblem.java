@@ -1,6 +1,9 @@
-package collins.kent.tutor;
+package collins.kent.tutor.casting;
 
 import java.util.Random;
+
+import collins.kent.tutor.Problem;
+import collins.kent.tutor.arithmetic.DoubleDivisionProblem;
 
 /***
  * Provides practice evaluating arithmetic problems where the left operand is

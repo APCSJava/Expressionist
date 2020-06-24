@@ -1,8 +1,11 @@
-package collins.kent.tutor;
+package collins.kent.tutor.string;
 
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
+
+import collins.kent.tutor.IFTutor;
+import collins.kent.tutor.Problem;
 
 /***
  * Produces a medium length string with crossed indices demonstrating an exception.

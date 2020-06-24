@@ -1,6 +1,8 @@
-package collins.kent.tutor;
+package collins.kent.tutor.arithmetic;
 
 import java.util.Random;
+
+import collins.kent.tutor.Problem;
 
 /***
  * Produces a modulo problem involving integers. Avoids % 0. Operands are

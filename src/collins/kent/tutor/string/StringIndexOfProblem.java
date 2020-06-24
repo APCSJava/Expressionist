@@ -1,6 +1,8 @@
-package collins.kent.tutor;
+package collins.kent.tutor.string;
 
 import java.util.Random;
+
+import collins.kent.tutor.Problem;
 
 /***
  * Produces a problem involving determining the location of a character in a string literal.

@@ -1,6 +1,8 @@
-package collins.kent.tutor;
+package collins.kent.tutor.arithmetic;
 
 import java.util.Random;
+
+import collins.kent.tutor.Problem;
 
 /***
  * Produces a problem involving division of doubles. Division by zero or 0.0 is

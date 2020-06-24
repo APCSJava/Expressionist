@@ -3,6 +3,8 @@ package collins.kent.tutor;
 import java.util.Random;
 import java.util.Scanner;
 
+import collins.kent.tutor.string.SubstringSingleIndexProblem;
+
 public class Tester {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);

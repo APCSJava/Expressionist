@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import collins.kent.tutor.arithmetic.RandomDoubleArithmeticProblem;
+
 /***
  * Creates instant expressions for building student facility with reasoning
  * about expressions across different data and operator types.
