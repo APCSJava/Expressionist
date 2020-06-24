@@ -22,12 +22,7 @@ public class SubstringLengthTwoArgumentProblem
 
 	@Override
 	public Problem generate(Random rng) {
-		List<String> words = StringSource.getInstance().getWords();
-		// choose a medium length word
-		List<String> collect = words.stream()
-				.filter(s -> s.length() >= 4 && s.length() <= 10)
-				.collect(Collectors.toList());
-		s = collect.get(rng.nextInt(collect.size()));
+		s=StringSource.getInstance().getRandomWord(rng, 4, 10);
 		from = rng.nextInt(s.length());
 		to = from + rng.nextInt(s.length()-from);
 		return this;

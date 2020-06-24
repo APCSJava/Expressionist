@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /***
- * Singleton instance used as a source of words and phrases. 
+ * Singleton instance used as a source of words and phrases.
  * 
  * @author k. collins
  *
@@ -26,7 +27,10 @@ public final class StringSource {
 		return instance;
 	}
 
-	List<String> words = Arrays.asList(new String[] { "ace", "exam", "quick", "fitbit", "layaway", "goodbye", "framework", "terminator", "start" });
+	List<String> words = Arrays.asList(new String[] { "ace", "exam",
+			"roar", "widen", "quick", "begin", "Poppy", "Acacia", "narrow", "playful",
+			"creative", "brilliant", "Satisfied", "successful" });
+
 	public List<String> getWords() {
 		return new ArrayList<>(words);
 	}
@@ -35,10 +39,21 @@ public final class StringSource {
 		return phrases;
 	}
 
-	List<String> phrases = Arrays.asList(new String[] { "Love's Labours Lost", "Hello, World!", "Let's go.", "Just do it!" });
+	List<String> phrases = Arrays
+			.asList(new String[] { "Love's Labours Lost",
+					"Hello, World!", "Let's go.", "Just do it!" });
 
 	String getRandomWord(Random random) {
 		return words.get(random.nextInt(words.size()));
+	}
+
+	String getRandomWord(Random random, int minLength,
+			int maxLength) {
+		List<String> collect = words.stream()
+				.filter(s -> s.length() > minLength
+						&& s.length() <= maxLength)
+				.collect(Collectors.toList());
+		return collect.get(random.nextInt(collect.size()));
 	}
 
 	int map(double d, int range) {

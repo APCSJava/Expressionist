@@ -1,8 +1,6 @@
 package collins.kent.tutor.string;
 
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import collins.kent.tutor.IFTutor;
 import collins.kent.tutor.Problem;
@@ -22,12 +20,7 @@ public class SubstringIndexErrorProblem
 
 	@Override
 	public Problem generate(Random rng) {
-		List<String> words = StringSource.getInstance().getWords();
-		// choose a medium length word
-		List<String> collect = words.stream()
-				.filter(s -> s.length() >= 3 && s.length() <= 6)
-				.collect(Collectors.toList());
-		s = collect.get(rng.nextInt(collect.size()));
+		s = StringSource.getInstance().getRandomWord(rng, 3, 6);
 		from = rng.nextInt(s.length()-1); 
 		to = from + rng.nextInt(s.length()-from);
 		// swap indices to create an exception

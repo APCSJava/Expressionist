@@ -21,12 +21,7 @@ public class SubstringTwoIndexProblem implements Problem {
 
 	@Override
 	public Problem generate(Random rng) {
-		List<String> words = StringSource.getInstance().getWords();
-		// choose a medium length word
-		List<String> collect = words.stream()
-				.filter(s -> s.length() >= 4 && s.length() <= 7)
-				.collect(Collectors.toList());
-		s = collect.get(rng.nextInt(collect.size()));
+		s=StringSource.getInstance().getRandomWord(rng, 4, 7);
 		from = rng.nextInt(s.length()+1); // occasionally, ask about final index
 		to = from + rng.nextInt(s.length() - from);
 		return this;
