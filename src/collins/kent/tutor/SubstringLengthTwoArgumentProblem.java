@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * @author kentcollins
  *
  */
-public class StringSimpleLengthOfSubstringProblem
+public class SubstringLengthTwoArgumentProblem
 		implements Problem {
 
 	String s;
@@ -23,7 +23,7 @@ public class StringSimpleLengthOfSubstringProblem
 		List<String> words = StringSource.getInstance().getWords();
 		// choose a medium length word
 		List<String> collect = words.stream()
-				.filter(s -> s.length() >= 4 && s.length() <= 8)
+				.filter(s -> s.length() >= 4 && s.length() <= 10)
 				.collect(Collectors.toList());
 		s = collect.get(rng.nextInt(collect.size()));
 		from = rng.nextInt(s.length());
@@ -33,8 +33,7 @@ public class StringSimpleLengthOfSubstringProblem
 
 	@Override
 	public String getStatement() {
-		String question = "What is the length of the string returned by this expression?\n";
-		question+="\t\""+s+"\".substring("+from+", "+to+");";
+		String question ="\""+s+"\".substring("+from+", "+to+").length()";
 		return question;
 	}
 

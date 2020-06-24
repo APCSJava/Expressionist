@@ -26,7 +26,7 @@ public final class StringSource {
 		return instance;
 	}
 
-	List<String> words = Arrays.asList(new String[] { "quick", "terminator", "start" });
+	List<String> words = Arrays.asList(new String[] { "ace", "exam", "quick", "fitbit", "layaway", "goodbye", "framework", "terminator", "start" });
 	public List<String> getWords() {
 		return new ArrayList<>(words);
 	}
