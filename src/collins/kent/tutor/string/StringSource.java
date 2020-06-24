@@ -27,9 +27,11 @@ public final class StringSource {
 		return instance;
 	}
 
-	List<String> words = Arrays.asList(new String[] { "ace", "exam",
-			"roar", "widen", "quick", "begin", "Poppy", "Acacia", "narrow", "playful",
-			"creative", "brilliant", "Satisfied", "successful" });
+	List<String> words = Arrays.asList(new String[] { "ace", "duo",
+			"one", "two", "trio", "play", "good", "mama", "papa",
+			"widen", "quick", "begin", "Poppy", "Acacia", "narrow",
+			"playful", "creative", "brilliant", "Satisfied",
+			"successful" });
 
 	public List<String> getWords() {
 		return new ArrayList<>(words);
