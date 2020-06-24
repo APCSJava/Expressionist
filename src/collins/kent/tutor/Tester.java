@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import collins.kent.tutor.string.StringIndexOfProblem;
 
+
 public class Tester {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
