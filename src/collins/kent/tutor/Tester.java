@@ -3,14 +3,14 @@ package collins.kent.tutor;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.string.SubstringSingleIndexProblem;
+import collins.kent.tutor.string.RandomStringProblem;
 
 public class Tester {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		Random r = new Random();
 		for (int i = 0; i < 10; i++) {
-			Problem p = new SubstringSingleIndexProblem();
+			Problem p = new RandomStringProblem();
 			p.generate(r);
 			System.out.println(p.getStatement());
 			String response = s.nextLine();
