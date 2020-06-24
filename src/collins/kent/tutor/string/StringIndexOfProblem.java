@@ -5,8 +5,8 @@ import java.util.Random;
 import collins.kent.tutor.Problem;
 
 /***
- * Produces a problem involving determining the location of a character in a
- * medium length string literal.
+ * Produces a problem involving a random word and a random letter sequence that
+ * may appear as a substring.
  * 
  * @author k. collins
  *
@@ -14,29 +14,37 @@ import collins.kent.tutor.Problem;
 public class StringIndexOfProblem implements Problem {
 
 	String word;
-	String chosenLetter;
-	private int index;
+	String target;
 
 	@Override
 	public Problem generate(Random rng) {
 		StringSource source = StringSource.getInstance();
 		word = source.getRandomWord(rng, 4, 8);
-		index = rng.nextInt(word.length());
-		chosenLetter = word.substring(index, index + 1);
+		// half the time, pick a substring from this word
+		if (rng.nextDouble()<0.5) {
+			target = getOneToThreeLetterSubstring(rng, word);
+		} else {
+			//otherwise, grab substring from some random word
+			target = getOneToThreeLetterSubstring(rng, source.getRandomWord(rng));
+		}
 		return this;
 	}
 
 	@Override
 	public String getStatement() {
-		return "\"" + word + "\"." + "indexOf(\"" + chosenLetter
+		return "\"" + word + "\"." + "indexOf(\"" + target
 				+ "\");";
 	}
 
 	@Override
 	public String getAnswer() {
-		// doesn't work if builds off the last occurrence of a repeated letter
-		// return Integer.toString(index);
-		return Integer.toString(word.indexOf(chosenLetter));
+		return Integer.toString(word.indexOf(target));
+	}
+	
+	private String getOneToThreeLetterSubstring(Random rng, String s) {
+		int numLetters = rng.nextInt(2)+1;// in the range [1, 3]
+		int start = rng.nextInt(s.length()-numLetters);
+		return s.substring(start, start+numLetters);
 	}
 
 }
