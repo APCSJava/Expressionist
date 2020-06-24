@@ -1,5 +1,6 @@
 package collins.kent.tutor;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -26,6 +27,14 @@ public final class StringSource {
 	}
 
 	List<String> words = Arrays.asList(new String[] { "quick", "terminator", "start" });
+	public List<String> getWords() {
+		return new ArrayList<>(words);
+	}
+
+	public List<String> getPhrases() {
+		return phrases;
+	}
+
 	List<String> phrases = Arrays.asList(new String[] { "Love's Labours Lost", "Hello, World!", "Let's go.", "Just do it!" });
 
 	String getRandomWord(Random random) {
