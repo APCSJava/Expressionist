@@ -4,24 +4,25 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.string.StringCompareToProblem;
+import collins.kent.tutor.logical.SimpleNotLogicalProblem;
 
 /***
- * Creates instant expressions for building student facility with reasoning
- * about expressions across different data and operator types.
+ * Creates drills to strengthen student reasoning about expressions across
+ * different data type and operators.
  * 
  * @author k. collins
  *
  */
 
 public class IFTutor {
-	
+
 	public static final String ERROR = "e";
 
 	static final Scanner s = new Scanner(System.in);
 	ArrayList<Problem> correct = new ArrayList<>();
 	ArrayList<Problem> toReview = new ArrayList<>();
-	ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were incorrect
+	ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were
+														// incorrect
 	Random random = new Random(); // central source for random numbers
 
 	public void ask(Problem p) {
@@ -37,26 +38,29 @@ public class IFTutor {
 	}
 
 	public static void main(String[] args) {
-		IFTutor ift = new IFTutor();
-		ift.random.setSeed(1L);
+		IFTutor tutor = new IFTutor();
+		tutor.random.setSeed(1L);
 		for (int i = 0; i < 10; i++) {
-			Problem p = new StringCompareToProblem().generate(ift.random);
-			ift.ask(p);
+			Problem p = new SimpleNotLogicalProblem()
+					.generate(tutor.random);
+			tutor.ask(p);
 		}
 		// recheck the items missed
-		while (ift.toReview.size() != 0) {
-			Problem missed = ift.toReview.remove(0);
-			ift.reviewed.add(missed); // so can retrieve it later, for analysis
+		while (tutor.toReview.size() != 0) {
+			Problem missed = tutor.toReview.remove(0);
+			tutor.reviewed.add(missed); // so can retrieve it later, for
+										// analysis
 			Class<? extends Problem> c = missed.getClass();
 			try {
-				ift.ask(c.newInstance().generate(ift.random));
+				tutor.ask(c.newInstance().generate(tutor.random));
 			} catch (InstantiationException e) {
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Correct: " + ift.correct.size() + "\tIncorrect: " + ift.reviewed.size());
+		System.out.println("Correct: " + tutor.correct.size()
+				+ "\tIncorrect: " + tutor.reviewed.size());
 	}
 
 	public static String getExceptionSymbol() {
