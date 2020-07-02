@@ -13,7 +13,7 @@ public class IntegerModuloZeroProblem implements Problem {
 	public Problem generate(Random rng) {
 		original = new IntegerModuloProblem();
 		original.generate(rng);
-		return null;
+		return this;
 	}
 
 	@Override
