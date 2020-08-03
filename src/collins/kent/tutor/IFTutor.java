@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.binary.PositiveNegativeProblem;
+import collins.kent.tutor.binary.HexToNibbleProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -39,9 +39,9 @@ public class IFTutor {
 
 	public static void main(String[] args) {
 		IFTutor tutor = new IFTutor();
-		tutor.random.setSeed(1L);
+		//tutor.random.setSeed(1L);
 		for (int i = 0; i < 10; i++) {
-			Problem p = new PositiveNegativeProblem()
+			Problem p = new HexToNibbleProblem()
 					.generate(tutor.random);
 			tutor.ask(p);
 		}
