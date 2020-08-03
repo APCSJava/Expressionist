@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.logical.SimpleNotLogicalProblem;
+import collins.kent.tutor.binary.PositiveNegativeProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -41,7 +41,7 @@ public class IFTutor {
 		IFTutor tutor = new IFTutor();
 		tutor.random.setSeed(1L);
 		for (int i = 0; i < 10; i++) {
-			Problem p = new SimpleNotLogicalProblem()
+			Problem p = new PositiveNegativeProblem()
 					.generate(tutor.random);
 			tutor.ask(p);
 		}
