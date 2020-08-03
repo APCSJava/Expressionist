@@ -5,7 +5,7 @@ import java.util.Random;
 
 import collins.kent.tutor.Problem;
 
-public class NibbleToHexProblem implements Problem {
+public class HexToNibbleProblem implements Problem {
 
 	private static final String[] values = { "0000", "0001", "0010",
 			"0011", "0100", "0101", "0110", "0111", "1000", "1001",
@@ -25,13 +25,13 @@ public class NibbleToHexProblem implements Problem {
 
 	@Override
 	public String getStatement() {
-		return "What is the hexadecimal digit for this four-bit binary value?\n"
-				+ values[key];
+		return "What is the four-bit representation for this hexadecimal digit?\n"
+				+ answers[key];
 	}
 
 	@Override
 	public String getAnswer() {
-		return answers[key];
+		return values[key];
 	}
 
 }
