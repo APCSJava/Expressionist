@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.binary.HexToNibbleProblem;
+import collins.kent.tutor.arrays.DetermineCorrectIndexProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -41,7 +41,7 @@ public class IFTutor {
 		IFTutor tutor = new IFTutor();
 		//tutor.random.setSeed(1L);
 		for (int i = 0; i < 10; i++) {
-			Problem p = new HexToNibbleProblem()
+			Problem p = new DetermineCorrectIndexProblem()
 					.generate(tutor.random);
 			tutor.ask(p);
 		}
