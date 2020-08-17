@@ -3,7 +3,9 @@ package collins.kent.tutor.binary;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Categorize a binary value as positive or negative")
 public class PositiveNegativeProblem implements Problem {
 
 	String value;
@@ -20,7 +22,7 @@ public class PositiveNegativeProblem implements Problem {
 
 	@Override
 	public String getStatement() {
-		return "Is the following value positive [pos] or negative [neg]? (two's complement)\n"
+		return "Is the following two's complement value positive [pos] or negative [neg]?\n"
 				+ value;
 	}
 

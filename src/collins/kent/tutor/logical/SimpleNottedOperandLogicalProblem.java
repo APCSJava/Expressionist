@@ -4,7 +4,9 @@ import java.util.Random;
 
 import collins.kent.tutor.Operator;
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Evaluate logical expressions containing NOT and AND/OR")
 public class SimpleNottedOperandLogicalProblem implements Problem {
 
 	boolean leftInverted;

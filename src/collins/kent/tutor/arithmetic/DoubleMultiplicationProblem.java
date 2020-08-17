@@ -3,6 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
  * Produces a problem involving multiplication of doubles. Operands are restricted to
@@ -12,6 +13,7 @@ import collins.kent.tutor.Problem;
  * @author k. collins
  *
  */
+@Skill(skill="Multiply one double value by a second double")
 public class DoubleMultiplicationProblem implements Problem {
 	
 	double leftOperand;

@@ -3,6 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
  * Produces a problem involving addition of doubles. Operands are restricted to
@@ -12,6 +13,7 @@ import collins.kent.tutor.Problem;
  * @author k. collins
  *
  */
+@Skill(skill="Add together two double values")
 public class DoubleAdditionProblem implements Problem {
 
 	double leftOperand;

@@ -1,10 +1,12 @@
-package collins.kent.tutor.literals;
+package collins.kent.defunct;
 
 import java.util.Random;
 
 import collins.kent.tutor.IFTutor;
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Recognize literals of a variety of types")
 public class RecognizeLiteralValueProblem implements Problem {
 
 	// train students to recognize literal values of the following types:

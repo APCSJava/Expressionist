@@ -4,7 +4,9 @@ import java.util.Random;
 
 import collins.kent.tutor.IFTutor;
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Identify integer mod zero as an error")
 public class IntegerModuloZeroProblem implements Problem {
 
 	Problem original;

@@ -1,10 +1,11 @@
 package collins.kent.tutor.binary;
 
-import java.util.HashMap;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Given a hex digit, write its equivalent binary value in four bits")
 public class HexToNibbleProblem implements Problem {
 
 	private static final String[] values = { "0000", "0001", "0010",

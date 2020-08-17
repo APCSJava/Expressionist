@@ -4,6 +4,7 @@ import java.util.Random;
 
 import collins.kent.tutor.Operator;
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
  * Produces a problem involving comparisons of integer values.
@@ -11,7 +12,7 @@ import collins.kent.tutor.Problem;
  * @author k. collins
  *
  */
-
+@Skill(skill="Apply comparison operators on integer values")
 public class IntegerComparisonProblem implements Problem {
 
 	int leftOperand;

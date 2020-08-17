@@ -4,7 +4,9 @@ import java.util.Random;
 
 import collins.kent.tutor.Operator;
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Identify misuse of = instead of ==")
 public class GotchaAssignVersusCompareProblem implements Problem {
 
 	IntegerComparisonProblem original;

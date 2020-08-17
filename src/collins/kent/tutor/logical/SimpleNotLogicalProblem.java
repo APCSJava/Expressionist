@@ -3,7 +3,9 @@ package collins.kent.tutor.logical;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Evaluate logical expressions involving NOT")
 public class SimpleNotLogicalProblem implements Problem {
 
 	boolean premise;

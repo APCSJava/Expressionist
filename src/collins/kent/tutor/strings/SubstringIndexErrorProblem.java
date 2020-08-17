@@ -4,6 +4,7 @@ import java.util.Random;
 
 import collins.kent.tutor.IFTutor;
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
  * Produces a medium length string with crossed indices demonstrating an
@@ -12,6 +13,7 @@ import collins.kent.tutor.Problem;
  * @author kentcollins
  *
  */
+@Skill(skill="Recognize string index errors")
 public class SubstringIndexErrorProblem implements Problem {
 
 	String s;

@@ -3,6 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
  * Mixed arithmetic problems involve one int operand and one double operand.
@@ -13,7 +14,7 @@ import collins.kent.tutor.Problem;
  * @author k. collins
  *
  */
-
+@Skill(skill="Perform arithmetic between integers and doubles")
 public class MixedTypeArithmeticProblem implements Problem {
 	
 	Problem original;

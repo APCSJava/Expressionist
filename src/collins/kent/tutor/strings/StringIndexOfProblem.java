@@ -3,6 +3,7 @@ package collins.kent.tutor.strings;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
  * Produces a problem involving a random word and a random letter sequence that
@@ -11,6 +12,7 @@ import collins.kent.tutor.Problem;
  * @author k. collins
  *
  */
+@Skill(skill="Determine the index of a sequence within a string")
 public class StringIndexOfProblem implements Problem {
 
 	String word;

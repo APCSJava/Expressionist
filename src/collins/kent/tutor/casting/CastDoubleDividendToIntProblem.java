@@ -3,6 +3,7 @@ package collins.kent.tutor.casting;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 import collins.kent.tutor.arithmetic.IntegerDivisionProblem;
 
 /***
@@ -12,7 +13,7 @@ import collins.kent.tutor.arithmetic.IntegerDivisionProblem;
  * @author k. collins
  *
  */
-
+@Skill(skill="Cast a double value to an int to force integer arithmetic")
 public class CastDoubleDividendToIntProblem implements Problem {
 
 	Problem original;

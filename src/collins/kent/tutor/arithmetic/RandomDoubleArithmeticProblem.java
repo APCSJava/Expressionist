@@ -3,13 +3,16 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
- * Produces random arithmetic problems involving doubles. Avoids modulo operations.
+ * Produces random addition, subtraction, multiplication and division problems
+ * involving exclusively doubles. 
  * 
  * @author k. collins
  *
  */
+@Skill(skill="Solve a variety of arithmetic problems involving doubles")
 public class RandomDoubleArithmeticProblem implements Problem {
 
 	Problem actual;
@@ -44,7 +47,7 @@ public class RandomDoubleArithmeticProblem implements Problem {
 	public String getAnswer() {
 		return actual.getAnswer();
 	}
-	
+
 	@Override
 	public boolean isCorrect(String response) {
 		return actual.isCorrect(response);

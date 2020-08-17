@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.literals.RecognizeLiteralValueProblem;
+import collins.kent.defunct.RecognizeLiteralValueProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across

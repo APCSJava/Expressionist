@@ -3,6 +3,7 @@ package collins.kent.tutor.strings;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
 /***
  * Produces a substring from a medium length string. Quote marks are expected to
@@ -11,6 +12,7 @@ import collins.kent.tutor.Problem;
  * @author kentcollins
  *
  */
+@Skill(skill="Extract portions of a string using substring() [two parameters]")
 public class SubstringTwoIndexProblem implements Problem {
 
 	String s;

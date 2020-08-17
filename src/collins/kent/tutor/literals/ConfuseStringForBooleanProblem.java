@@ -3,7 +3,9 @@ package collins.kent.tutor.literals;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Avoid confusing strings with booleans")
 public class ConfuseStringForBooleanProblem implements Problem {
 
 	private String displayString;

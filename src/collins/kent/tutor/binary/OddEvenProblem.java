@@ -3,7 +3,9 @@ package collins.kent.tutor.binary;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill="Categorize a binary value as odd or even")
 public class OddEvenProblem implements Problem {
 
 	String value;
@@ -20,7 +22,7 @@ public class OddEvenProblem implements Problem {
 
 	@Override
 	public String getStatement() {
-		return "Is the following value odd or even? (two's complement)\n"
+		return "Is the following two's complement integer odd or even?\n"
 				+ value;
 	}
 

@@ -2,9 +2,10 @@ package collins.kent.tutor.comparison;
 
 import java.util.Random;
 
-import collins.kent.tutor.Operator;
 import collins.kent.tutor.Problem;
+import collins.kent.tutor.Skill;
 
+@Skill(skill = "Identify that comparisons between doubles may produce inconsistent results")
 public class GotchaDoubleEqualityCheckProblem implements Problem {
 
 	String s1 = "0.1 + 0.2 == 0.3"; // false
