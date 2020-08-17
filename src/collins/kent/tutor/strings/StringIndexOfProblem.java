@@ -1,4 +1,4 @@
-package collins.kent.tutor.string;
+package collins.kent.tutor.strings;
 
 import java.util.Random;
 
@@ -20,8 +20,8 @@ public class StringIndexOfProblem implements Problem {
 	public Problem generate(Random rng) {
 		StringSource source = StringSource.getInstance();
 		word = source.getRandomWord(rng, 4, 8);
-		// half the time, pick a substring from this word
-		if (rng.nextDouble() < 0.5) {
+		// most of the time, pick a substring from this word
+		if (rng.nextDouble() < 0.8) {
 			target = getOneToThreeLetterSubstring(rng, word);
 		} else {
 			// otherwise, grab substring from some random word
@@ -45,7 +45,7 @@ public class StringIndexOfProblem implements Problem {
 			String s) {
 		// pick one to three letters, if word is long enough
 		int numLetters = Math.min(rng.nextInt(3) + 1, s.length());
-		int start = rng.nextInt(s.length() - numLetters);
+		int start = rng.nextInt(s.length() - numLetters+1);
 		return s.substring(start, start + numLetters);
 	}
 

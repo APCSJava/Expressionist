@@ -1,17 +1,17 @@
-package collins.kent.tutor.string;
+package collins.kent.tutor.strings;
 
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
 
 /***
- * Produces a substring from a medium length string. Quote marks are expected to
- * emphasize that a string type is returned.
+ * Produces a medium length string with indices from and to both specified that
+ * avoid exceptions.
  * 
  * @author kentcollins
  *
  */
-public class SubstringTwoIndexProblem implements Problem {
+public class SubstringLengthTwoArgumentProblem implements Problem {
 
 	String s;
 	int from;
@@ -19,8 +19,8 @@ public class SubstringTwoIndexProblem implements Problem {
 
 	@Override
 	public Problem generate(Random rng) {
-		s=StringSource.getInstance().getRandomWord(rng, 4, 7);
-		from = rng.nextInt(s.length()+1); // occasionally, ask about final index
+		s = StringSource.getInstance().getRandomWord(rng, 4, 10);
+		from = rng.nextInt(s.length());
 		to = from + rng.nextInt(s.length() - from);
 		return this;
 	}
@@ -28,13 +28,13 @@ public class SubstringTwoIndexProblem implements Problem {
 	@Override
 	public String getStatement() {
 		String question = "\"" + s + "\".substring(" + from + ", "
-				+ to + ")";
+				+ to + ").length()";
 		return question;
 	}
 
 	@Override
 	public String getAnswer() {
-		return "\"" + s.substring(from, to) + "\"";
+		return Integer.toString(to - from);
 	}
 
 }

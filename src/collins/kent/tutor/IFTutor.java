@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.arrays.DetermineCorrectIndexProblem;
+import collins.kent.tutor.literals.RecognizeLiteralValueProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -40,8 +40,8 @@ public class IFTutor {
 	public static void main(String[] args) {
 		IFTutor tutor = new IFTutor();
 		//tutor.random.setSeed(1L);
-		for (int i = 0; i < 10; i++) {
-			Problem p = new DetermineCorrectIndexProblem()
+		for (int i = 0; i < 20; i++) {
+			Problem p = new RecognizeLiteralValueProblem()
 					.generate(tutor.random);
 			tutor.ask(p);
 		}

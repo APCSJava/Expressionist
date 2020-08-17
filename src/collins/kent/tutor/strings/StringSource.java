@@ -1,4 +1,4 @@
-package collins.kent.tutor.string;
+package collins.kent.tutor.strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +27,7 @@ public final class StringSource {
 		return instance;
 	}
 
+//	List<String> words = Arrays.asList(new String[] {"ace", "duo"});
 	List<String> words = Arrays.asList(new String[] { "ace", "duo",
 			"one", "two", "trio", "play", "good", "mama", "papa",
 			"widen", "quick", "begin", "Poppy", "Acacia", "narrow",

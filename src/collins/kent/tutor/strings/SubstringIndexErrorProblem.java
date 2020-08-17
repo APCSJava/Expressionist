@@ -1,4 +1,4 @@
-package collins.kent.tutor.string;
+package collins.kent.tutor.strings;
 
 import java.util.Random;
 

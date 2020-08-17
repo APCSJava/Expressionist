@@ -1,4 +1,4 @@
-package collins.kent.tutor.string;
+package collins.kent.tutor.strings;
 
 import java.util.Random;
 
@@ -10,29 +10,25 @@ import collins.kent.tutor.Problem;
  * @author kentcollins
  *
  */
-public class SubstringLengthSingleArgumentProblem
-		implements Problem {
+public class StringLengthProblem implements Problem {
 
 	String s;
-	int from;
 
 	@Override
 	public Problem generate(Random rng) {
-		s = StringSource.getInstance().getRandomWord(rng, 4, 6);
-		from = rng.nextInt(s.length());
+		s = StringSource.getInstance().getRandomWord(rng, 3, 7);
 		return this;
 	}
 
 	@Override
 	public String getStatement() {
-		String question = "\"" + s + "\".substring(" + from
-				+ ").length()";
+		String question = "\"" + s + "\".length()";
 		return question;
 	}
 
 	@Override
 	public String getAnswer() {
-		return Integer.toString(s.length() - from);
+		return Integer.toString(s.length());
 	}
 
 }
