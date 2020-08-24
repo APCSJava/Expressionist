@@ -4,7 +4,7 @@ import java.util.Random;
 
 import collins.kent.tutor.Operator;
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces a problem involving comparisons of double values. Avoids checking
@@ -14,7 +14,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Apply comparison operators on doubles")
+@Meta(skill="Apply comparison operators on doubles")
 public class DoubleComparisonProblem implements Problem {
 
 	double leftOperand;

@@ -3,7 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces a problem involving subtraction of doubles. Operands are restricted to
@@ -13,7 +13,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Subtract a double value from a double value")
+@Meta(skill="Subtract a double value from a double value")
 public class DoubleSubtractionProblem implements Problem {
 
 	double leftOperand;

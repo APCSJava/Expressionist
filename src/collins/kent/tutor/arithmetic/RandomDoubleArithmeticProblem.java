@@ -3,7 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces random addition, subtraction, multiplication and division problems
@@ -12,7 +12,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Solve a variety of arithmetic problems involving doubles")
+@Meta(skill="Solve a variety of arithmetic problems involving doubles")
 public class RandomDoubleArithmeticProblem implements Problem {
 
 	Problem actual;

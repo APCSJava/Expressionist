@@ -3,9 +3,9 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Solve a variety of integer arithmetic problems")
+@Meta(skill="Solve a variety of integer arithmetic problems")
 public class RandomIntegerArithmeticProblem implements Problem {
 
 	Problem actual;

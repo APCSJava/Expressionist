@@ -3,7 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces integer division problems. Avoids dividing by zero.
@@ -11,7 +11,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Perform integer division on non-zero values")
+@Meta(skill="Perform integer division on non-zero values")
 public class IntegerDivisionProblem implements Problem {
 
 	int operandLeft;

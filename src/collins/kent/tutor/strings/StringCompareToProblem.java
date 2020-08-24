@@ -4,7 +4,7 @@ import java.util.Random;
 
 import collins.kent.tutor.Operator;
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces a problem wherein two strings are compared and the result is
@@ -13,7 +13,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Compare two strings using the compareTo() method")
+@Meta(skill="Compare two strings using the compareTo() method")
 public class StringCompareToProblem implements Problem {
 
 	String word1;

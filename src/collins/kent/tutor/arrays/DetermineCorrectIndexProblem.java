@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
-@Skill(skill="Identify the index of an element in an array")
+import collins.kent.tutor.Meta;
+@Meta(skill="Identify the index of an element in an array")
 public class DetermineCorrectIndexProblem implements Problem {
 	
 	String[] zodiac = {"rabbit", "dog", "horse", "ox", "rat", "monkey", "dragon", "tiger", "snake", "goat", "rooster", "pig"};

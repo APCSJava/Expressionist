@@ -4,9 +4,9 @@ import java.util.Random;
 
 import collins.kent.tutor.Operator;
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Evaluate logical expressions involving AND and OR")
+@Meta(skill="Evaluate logical expressions involving AND and OR")
 public class SimpleAndOrLogicalProblem implements Problem {
 
 	boolean left;

@@ -3,9 +3,9 @@ package collins.kent.tutor.literals;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Recognize literals of type int")
+@Meta(skill="Recognize literals of type int")
 public class RecognizeIntProblem implements Problem, NumericExpression {
 
 	private String displayString;

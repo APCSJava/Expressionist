@@ -3,9 +3,9 @@ package collins.kent.tutor.binary;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Given a four bit binary value, write its corresponding hex digit")
+@Meta(skill="Given a four bit binary value, write its corresponding hex digit")
 public class NibbleToHexProblem implements Problem {
 
 	private static final String[] values = { "0000", "0001", "0010",

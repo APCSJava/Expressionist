@@ -4,9 +4,9 @@ import java.util.Random;
 
 import collins.kent.tutor.IFTutor;
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Recognize that operators are not values")
+@Meta(skill="Recognize that operators are not values")
 public class RecognizeOperatorProblem implements Problem {
 
 	private static String operators = "+-*/%!";

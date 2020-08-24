@@ -3,9 +3,9 @@ package collins.kent.tutor.literals;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Avoid confusing strings with chars")
+@Meta(skill="Avoid confusing strings with chars")
 public class ConfuseStringForCharProblem implements Problem {
 
 	private static String chars = "aAcC       0123456789-/+%!?*";

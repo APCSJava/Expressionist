@@ -3,7 +3,7 @@ package collins.kent.tutor.strings;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces a medium length string with indices from and to both specified that
@@ -12,7 +12,7 @@ import collins.kent.tutor.Skill;
  * @author kentcollins
  *
  */
-@Skill(skill="Determine the length of an extracted substring [two parameters]")
+@Meta(skill="Determine the length of an extracted substring [two parameters]")
 public class SubstringLengthTwoArgumentProblem implements Problem {
 
 	String s;

@@ -3,9 +3,9 @@ package collins.kent.tutor.binary;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Categorize a binary value as positive or negative")
+@Meta(skill="Categorize a binary value as positive or negative")
 public class PositiveNegativeProblem implements Problem {
 
 	String value;

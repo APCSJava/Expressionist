@@ -3,7 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces a modulo problem involving integers. Avoids % 0. Operands are
@@ -13,7 +13,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Perform the remainder operation on non-zero values")
+@Meta(skill="Perform the remainder operation on non-zero values")
 public class IntegerModuloProblem implements Problem {
 
 	int operandLeft;

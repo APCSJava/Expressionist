@@ -7,9 +7,9 @@ import java.util.Random;
 
 import collins.kent.tutor.IFTutor;
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Identify an element in an array by its index")
+@Meta(skill="Identify an element in an array by its index")
 public class StringArrayAccessByIndexProblem implements Problem {
 
 	String[] zodiac = {"rabbit", "dog", "horse", "ox", "rat", "monkey", "dragon", "tiger", "snake", "goat", "rooster", "pig"};

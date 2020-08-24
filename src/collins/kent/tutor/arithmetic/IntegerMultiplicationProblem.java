@@ -3,7 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Factory method for producing integer multiplication problems. Operand values
@@ -13,7 +13,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Multiply one integer value by a second integer")
+@Meta(skill="Multiply one integer value by a second integer")
 public class IntegerMultiplicationProblem implements Problem {
 
 	int operandLeft;

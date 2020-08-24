@@ -3,9 +3,9 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Subtract one integer value from another")
+@Meta(skill="Subtract one integer value from another")
 public class IntegerSubtractionProblem implements Problem{
 
 	int operandLeft;

@@ -3,7 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces a problem involving division of doubles. Division by zero or 0.0 is
@@ -14,7 +14,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Divide one double value by a second double")
+@Meta(skill="Divide one double value by a second double")
 public class DoubleDivisionProblem implements Problem {
 
 	double dividend;

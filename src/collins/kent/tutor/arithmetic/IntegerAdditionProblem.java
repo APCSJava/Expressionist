@@ -3,7 +3,7 @@ package collins.kent.tutor.arithmetic;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Factory method to produce integer addition problems.
@@ -11,7 +11,7 @@ import collins.kent.tutor.Skill;
  * @author k. collins
  *
  */
-@Skill(skill="Add together two integer values")
+@Meta(skill="Add together two integer values")
 public class IntegerAdditionProblem implements Problem {
 
 	int operandLeft;

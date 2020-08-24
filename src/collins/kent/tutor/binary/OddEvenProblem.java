@@ -3,9 +3,9 @@ package collins.kent.tutor.binary;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Categorize a binary value as odd or even")
+@Meta(skill="Categorize a binary value as odd or even")
 public class OddEvenProblem implements Problem {
 
 	String value;

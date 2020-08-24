@@ -3,9 +3,9 @@ package collins.kent.tutor.literals;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Avoid confusing strings with numeric types")
+@Meta(skill="Avoid confusing strings with numeric types")
 public class ConfuseStringForNumericProblem implements Problem {
 
 	private String displayString;

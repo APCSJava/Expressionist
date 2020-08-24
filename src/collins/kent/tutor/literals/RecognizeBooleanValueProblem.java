@@ -3,9 +3,9 @@ package collins.kent.tutor.literals;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
-@Skill(skill="Recognize literals of type boolean")
+@Meta(skill="Recognize literals of type boolean")
 public class RecognizeBooleanValueProblem implements Problem {
 
 	private String displayString;

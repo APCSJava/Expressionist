@@ -30,9 +30,9 @@ public interface Problem {
 	// if our class is annotated with @Skill, return the skill string
 	default String getSkill() {
 		Class<? extends Problem> theClass = this.getClass();
-		Annotation a = theClass.getAnnotation(Skill.class);
-		if (a instanceof Skill) {
-			return ((Skill) a).skill();
+		Annotation a = theClass.getAnnotation(Meta.class);
+		if (a instanceof Meta) {
+			return ((Meta) a).skill();
 		}
 		return "Skill not identified";
 	}

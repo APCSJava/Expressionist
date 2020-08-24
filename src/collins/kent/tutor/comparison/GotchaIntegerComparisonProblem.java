@@ -3,8 +3,8 @@ package collins.kent.tutor.comparison;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
-@Skill(skill="Identify tricky comparisons involving integer division")
+import collins.kent.tutor.Meta;
+@Meta(skill="Identify tricky comparisons involving integer division")
 public class GotchaIntegerComparisonProblem implements Problem {
 	
 	String opt1 = "5/10 == 2/10 + 2/10";

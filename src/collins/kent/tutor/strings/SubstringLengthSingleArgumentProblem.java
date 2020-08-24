@@ -3,7 +3,7 @@ package collins.kent.tutor.strings;
 import java.util.Random;
 
 import collins.kent.tutor.Problem;
-import collins.kent.tutor.Skill;
+import collins.kent.tutor.Meta;
 
 /***
  * Produces a medium length string with a single 'from' index.
@@ -11,7 +11,7 @@ import collins.kent.tutor.Skill;
  * @author kentcollins
  *
  */
-@Skill(skill="Determine the length of an extracted substring [one parameter]")
+@Meta(skill="Determine the length of an extracted substring [one parameter]")
 public class SubstringLengthSingleArgumentProblem
 		implements Problem {
 
