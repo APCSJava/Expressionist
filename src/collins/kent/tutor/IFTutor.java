@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.defunct.RecognizeLiteralValueProblem;
+import collins.kent.tutor.binary.ConvertHexNibbleProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -48,7 +48,7 @@ public class IFTutor {
 		System.out.println("How many questions?");
 		int numQuestions = scanner.nextInt();
 		for (int i = 0; i < numQuestions; i++) {
-			Problem p = new RecognizeLiteralValueProblem()
+			Problem p = new ConvertHexNibbleProblem()
 					.generate(tutor.random);
 			tutor.ask(p);
 		}

@@ -1,4 +1,4 @@
-package collins.kent.defunct;
+package collins.kent.tutor.literals;
 
 import java.util.Random;
 
