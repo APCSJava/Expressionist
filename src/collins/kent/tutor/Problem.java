@@ -24,7 +24,7 @@ public interface Problem {
 		if (isCorrect(response)) {
 			return "Correct";
 		}
-		return "Incorrect.  The correct answer is " + getAnswer();
+		return "The correct answer is " + getAnswer();
 	}
 	
 	// if our class is annotated with @Skill, return the skill string

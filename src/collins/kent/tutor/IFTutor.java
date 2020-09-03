@@ -1,5 +1,6 @@
 package collins.kent.tutor;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class IFTutor {
 
 	public static final String ERROR = "e";
 
-	static final Scanner s = new Scanner(System.in);
+	static final Scanner scanner = new Scanner(System.in);
 	ArrayList<Problem> correct = new ArrayList<>();
 	ArrayList<Problem> toReview = new ArrayList<>();
 	ArrayList<Problem> reviewed = new ArrayList<>(); // will hold all that were
@@ -27,20 +28,26 @@ public class IFTutor {
 
 	public void ask(Problem p) {
 		System.out.println(p.getStatement());
-		String response = s.next().trim();
+		String response = scanner.next().trim();
 		if (p.isCorrect(response)) {
 			correct.add(p);
+			System.out.println(
+					"Yes.  " + correct.size() + " correct.");
 		} else {
 			toReview.add(p);
-			System.out.println(p.getFeedback(response));
+			System.out.println("*****  INCORRECT  *****\t"
+					+ p.getFeedback(response));
 		}
-		System.out.println("Number correct: " + correct.size());
 	}
 
 	public static void main(String[] args) {
 		IFTutor tutor = new IFTutor();
-		//tutor.random.setSeed(1L);
-		for (int i = 0; i < 20; i++) {
+		// tutor.random.setSeed(1L);
+		System.out.println("Please enter your name: ");
+		String name = scanner.nextLine().trim();
+		System.out.println("How many questions?");
+		int numQuestions = scanner.nextInt();
+		for (int i = 0; i < numQuestions; i++) {
 			Problem p = new RecognizeLiteralValueProblem()
 					.generate(tutor.random);
 			tutor.ask(p);
@@ -59,8 +66,10 @@ public class IFTutor {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Correct: " + tutor.correct.size()
-				+ "\tIncorrect: " + tutor.reviewed.size());
+		System.out.println(name + " completed "
+				+ tutor.correct.size() + " questions correctly on "
+				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
+				+ " missed.");
 	}
 
 	public static String getExceptionSymbol() {
