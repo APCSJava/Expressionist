@@ -13,7 +13,7 @@ public class ConvertHexNibbleProblem implements Problem {
 		specificCaseProblem = rng.nextBoolean()
 				? new HexToNibbleProblem().generate(rng)
 				: new NibbleToHexProblem().generate(rng);
-		return this;
+		return specificCaseProblem;
 	}
 
 	@Override
@@ -28,8 +28,4 @@ public class ConvertHexNibbleProblem implements Problem {
 		return specificCaseProblem.getAnswer();
 	}
 
-	@Override
-	public boolean isCorrect(String response) {
-		return getAnswer().equals(response.trim().toUpperCase());
-	}
 }

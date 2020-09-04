@@ -34,5 +34,10 @@ public class NibbleToHexProblem implements Problem {
 	public String getAnswer() {
 		return answers[key];
 	}
+	
+	@Override
+	public boolean isCorrect(String response) {
+		return getAnswer().equals(response.trim().toUpperCase());
+	}
 
 }
