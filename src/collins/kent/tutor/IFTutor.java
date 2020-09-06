@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.binary.ConvertHexNibbleProblem;
+import collins.kent.tutor.arithmetic.SingleTypeArithmeticProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -48,7 +48,7 @@ public class IFTutor {
 		System.out.println("How many questions?");
 		int numQuestions = scanner.nextInt();
 		for (int i = 0; i < numQuestions; i++) {
-			Problem p = new ConvertHexNibbleProblem()
+			Problem p = new SingleTypeArithmeticProblem()
 					.generate(tutor.random);
 			tutor.ask(p);
 		}
