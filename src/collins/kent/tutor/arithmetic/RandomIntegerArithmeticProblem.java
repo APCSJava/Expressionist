@@ -8,44 +8,50 @@ import collins.kent.tutor.Meta;
 @Meta(skill="Solve a variety of integer arithmetic problems")
 public class RandomIntegerArithmeticProblem implements Problem {
 
-	Problem actual;
+	Problem actualProblem;
 
 	@Override
 	public Problem generate(Random rng) {
-		int r = rng.nextInt(5);
+		int r = rng.nextInt(7);
 		switch (r) {
 		case 0:
-			actual = new IntegerAdditionProblem();
+			actualProblem = new IntegerAdditionProblem();
 			break;
 		case 1:
-			actual = new IntegerSubtractionProblem();
+			actualProblem = new IntegerSubtractionProblem();
 			break;
 		case 2:
-			actual = new IntegerMultiplicationProblem();
+			actualProblem = new IntegerMultiplicationProblem();
 			break;
 		case 3:
-			actual = new IntegerDivisionProblem();
+			actualProblem = new IntegerDivisionProblem();
 			break;
 		case 4:
-			actual = new IntegerModuloProblem();
+			actualProblem = new IntegerModuloProblem();
+			break;
+		case 5:
+			actualProblem = new IntegerDivisionByZeroProblem();
+			break;
+		case 6:
+			actualProblem = new IntegerModuloZeroProblem();
 			break;
 		}
-		actual.generate(rng);
-		return this;
+		actualProblem.generate(rng);
+		return actualProblem; // delegate to the specific subclass
 	}
 
 	@Override
 	public String getStatement() {
-		return actual.getStatement();
+		return actualProblem.getStatement();
 	}
 
 	@Override
 	public String getAnswer() {
-		return actual.getAnswer();
+		return actualProblem.getAnswer();
 	}
 	
 	public Class<? extends Problem> getInstantiatedClass() {
-		return actual.getClass();
+		return actualProblem.getClass();
 	}
 
 }

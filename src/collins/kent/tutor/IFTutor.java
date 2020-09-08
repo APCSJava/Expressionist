@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import collins.kent.tutor.arithmetic.MixedTypeArithmeticProblem;
 import collins.kent.tutor.arithmetic.SingleTypeArithmeticProblem;
 
 /***
@@ -31,12 +32,10 @@ public class IFTutor {
 		String response = scanner.next().trim();
 		if (p.isCorrect(response)) {
 			correct.add(p);
-			System.out.println(
-					"Yes.  " + correct.size() + " correct.");
+			System.out.println("Yes.  " + correct.size() + " correct.");
 		} else {
 			toReview.add(p);
-			System.out.println("*****  INCORRECT  *****\t"
-					+ p.getFeedback(response));
+			System.out.println("*****  INCORRECT  *****\t" + p.getFeedback(response));
 		}
 	}
 
@@ -48,8 +47,7 @@ public class IFTutor {
 		System.out.println("How many questions?");
 		int numQuestions = scanner.nextInt();
 		for (int i = 0; i < numQuestions; i++) {
-			Problem p = new SingleTypeArithmeticProblem()
-					.generate(tutor.random);
+			Problem p = new SingleTypeArithmeticProblem().generate(tutor.random);
 			tutor.ask(p);
 		}
 		// recheck the items missed
@@ -66,10 +64,9 @@ public class IFTutor {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(name + " completed "
-				+ tutor.correct.size() + " questions correctly on "
-				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
-				+ " missed.");
+		System.out.println(name + " completed " + tutor.correct.size() + " questions correctly on "
+				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size() + " missed.");
+		System.out.println("Topic: Single Type Arithmetic Problems");
 	}
 
 	public static String getExceptionSymbol() {

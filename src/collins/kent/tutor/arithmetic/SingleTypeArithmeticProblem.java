@@ -6,26 +6,26 @@ import collins.kent.tutor.Problem;
 
 public class SingleTypeArithmeticProblem implements Problem {
 	
-	Problem specificCaseProblem;
+	Problem actualProblem;
 
 	@Override
 	public Problem generate(Random rng) {
-		specificCaseProblem = rng.nextBoolean()
+		actualProblem = rng.nextBoolean()
 				? new RandomDoubleArithmeticProblem().generate(rng)
 				: new RandomIntegerArithmeticProblem().generate(rng);
-		return specificCaseProblem;
+		return actualProblem;
 	}
 
 	@Override
 	public String getStatement() {
 		// TODO Auto-generated method stub
-		return specificCaseProblem.getStatement();
+		return actualProblem.getStatement();
 	}
 
 	@Override
 	public String getAnswer() {
 		// TODO Auto-generated method stub
-		return specificCaseProblem.getAnswer();
+		return actualProblem.getAnswer();
 	}
 
 }

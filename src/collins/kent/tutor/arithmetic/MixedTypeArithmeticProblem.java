@@ -22,7 +22,8 @@ public class MixedTypeArithmeticProblem implements Problem {
 
 	@Override
 	public Problem generate(Random rng) {
-		// grab a double problem and randomly remove a .0 from an operand
+		// grab a double problem and remove a .0 from an operand
+		// original problem will not check for modulo on doubles
 		original = new RandomDoubleArithmeticProblem();
 		original.generate(rng);
 		String s = original.getStatement();
