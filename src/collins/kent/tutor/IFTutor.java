@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.relational.DoubleComparisonProblem;
-import collins.kent.tutor.relational.GotchaAssignVersusCompareProblem;
-import collins.kent.tutor.relational.GotchaDoubleEqualityCheckProblem;
-import collins.kent.tutor.relational.GotchaIntegerComparisonProblem;
-import collins.kent.tutor.relational.IntegerComparisonProblem;
+import collins.kent.tutor.logical.SimpleAndOrLogicalProblem;
+import collins.kent.tutor.logical.SimpleNotLogicalProblem;
+import collins.kent.tutor.logical.SimpleNottedOperandLogicalProblem;
+import collins.kent.tutor.logical.ThreeOperandLogicalProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -35,10 +34,12 @@ public class IFTutor {
 		String response = scanner.next().trim();
 		if (p.isCorrect(response)) {
 			correct.add(p);
-			System.out.println("Yes.  " + correct.size() + " correct.");
+			System.out.println(
+					"Yes.  " + correct.size() + " correct.");
 		} else {
 			toReview.add(p);
-			System.out.println("*****  INCORRECT  *****\t" + p.getFeedback(response));
+			System.out.println("*****  INCORRECT  *****\t"
+					+ p.getFeedback(response));
 		}
 	}
 
@@ -52,11 +53,19 @@ public class IFTutor {
 		for (int i = 0; i < numQuestions; i++) {
 			Problem p = null;
 			double num = tutor.random.nextDouble();
-			if (num < .30) p = new IntegerComparisonProblem();
-			else if (num < .60) p = new GotchaIntegerComparisonProblem();
-			else if (num < .80) p = new DoubleComparisonProblem();
-			else if (num < .90) p = new GotchaDoubleEqualityCheckProblem();
-			else p = new GotchaAssignVersusCompareProblem();
+			// SimpleLogical 30%
+			// SimpleNot 15%
+			// SimpleNotted 25%
+			// ThreeOperand 30%
+			if (num <0.3)
+				p = new ThreeOperandLogicalProblem(); 
+			else if (num < .60)
+				p = new SimpleAndOrLogicalProblem();
+			else if (num < .75)
+				p = new SimpleNotLogicalProblem(); 
+			else
+				p = new SimpleNottedOperandLogicalProblem();
+
 			p.generate(tutor.random);
 			tutor.ask(p);
 		}
@@ -74,9 +83,11 @@ public class IFTutor {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(name + " completed " + tutor.correct.size() + " questions correctly on "
-				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size() + " missed.");
-		System.out.println("Topic: Relational Problems");
+		System.out.println(name + " completed "
+				+ tutor.correct.size() + " questions correctly on "
+				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
+				+ " missed.");
+		System.out.println("Topic: Logical Operator Problems");
 	}
 
 	public static String getExceptionSymbol() {
