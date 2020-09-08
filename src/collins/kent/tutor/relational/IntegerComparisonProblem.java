@@ -1,4 +1,4 @@
-package collins.kent.tutor.comparison;
+package collins.kent.tutor.relational;
 
 import java.util.Random;
 

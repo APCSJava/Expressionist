@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.arithmetic.MixedTypeArithmeticProblem;
-import collins.kent.tutor.arithmetic.SingleTypeArithmeticProblem;
+import collins.kent.tutor.relational.DoubleComparisonProblem;
+import collins.kent.tutor.relational.GotchaAssignVersusCompareProblem;
+import collins.kent.tutor.relational.GotchaDoubleEqualityCheckProblem;
+import collins.kent.tutor.relational.GotchaIntegerComparisonProblem;
+import collins.kent.tutor.relational.IntegerComparisonProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -47,7 +50,14 @@ public class IFTutor {
 		System.out.println("How many questions?");
 		int numQuestions = scanner.nextInt();
 		for (int i = 0; i < numQuestions; i++) {
-			Problem p = new SingleTypeArithmeticProblem().generate(tutor.random);
+			Problem p = null;
+			double num = tutor.random.nextDouble();
+			if (num < .30) p = new IntegerComparisonProblem();
+			else if (num < .60) p = new GotchaIntegerComparisonProblem();
+			else if (num < .80) p = new DoubleComparisonProblem();
+			else if (num < .90) p = new GotchaDoubleEqualityCheckProblem();
+			else p = new GotchaAssignVersusCompareProblem();
+			p.generate(tutor.random);
 			tutor.ask(p);
 		}
 		// recheck the items missed
@@ -66,7 +76,7 @@ public class IFTutor {
 		}
 		System.out.println(name + " completed " + tutor.correct.size() + " questions correctly on "
 				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size() + " missed.");
-		System.out.println("Topic: Single Type Arithmetic Problems");
+		System.out.println("Topic: Relational Problems");
 	}
 
 	public static String getExceptionSymbol() {
