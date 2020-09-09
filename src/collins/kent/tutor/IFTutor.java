@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.logical.SimpleAndOrLogicalProblem;
-import collins.kent.tutor.logical.SimpleNotLogicalProblem;
-import collins.kent.tutor.logical.SimpleNottedOperandLogicalProblem;
-import collins.kent.tutor.logical.ThreeOperandLogicalProblem;
+import collins.kent.tutor.casting.CastDoubleDividendToIntProblem;
+import collins.kent.tutor.casting.CastIntDividendToDoubleProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -57,14 +55,10 @@ public class IFTutor {
 			// SimpleNot 15%
 			// SimpleNotted 25%
 			// ThreeOperand 30%
-			if (num <0.3)
-				p = new ThreeOperandLogicalProblem(); 
-			else if (num < .60)
-				p = new SimpleAndOrLogicalProblem();
-			else if (num < .75)
-				p = new SimpleNotLogicalProblem(); 
+			if (num <0.5)
+				p = new CastDoubleDividendToIntProblem(); 
 			else
-				p = new SimpleNottedOperandLogicalProblem();
+				p = new CastIntDividendToDoubleProblem();
 
 			p.generate(tutor.random);
 			tutor.ask(p);
@@ -87,7 +81,7 @@ public class IFTutor {
 				+ tutor.correct.size() + " questions correctly on "
 				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
 				+ " missed.");
-		System.out.println("Topic: Logical Operator Problems");
+		System.out.println("Topic: Casting Problems");
 	}
 
 	public static String getExceptionSymbol() {
