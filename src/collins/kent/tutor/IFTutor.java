@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.casting.CastDoubleDividendToIntProblem;
-import collins.kent.tutor.casting.CastIntDividendToDoubleProblem;
+import collins.kent.tutor.binary.OddEvenProblem;
+import collins.kent.tutor.binary.PositiveNegativeProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -56,9 +56,9 @@ public class IFTutor {
 			// SimpleNotted 25%
 			// ThreeOperand 30%
 			if (num <0.5)
-				p = new CastDoubleDividendToIntProblem(); 
+				p = new OddEvenProblem(); 
 			else
-				p = new CastIntDividendToDoubleProblem();
+				p = new PositiveNegativeProblem();
 
 			p.generate(tutor.random);
 			tutor.ask(p);
@@ -81,7 +81,7 @@ public class IFTutor {
 				+ tutor.correct.size() + " questions correctly on "
 				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
 				+ " missed.");
-		System.out.println("Topic: Casting Problems");
+		System.out.println("Topic: Two's Complement Problems");
 	}
 
 	public static String getExceptionSymbol() {

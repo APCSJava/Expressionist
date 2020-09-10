@@ -22,7 +22,7 @@ public class OddEvenProblem implements Problem {
 
 	@Override
 	public String getStatement() {
-		return "Is the following two's complement integer odd or even?\n"
+		return "Is the following two's complement value odd [odd] or even [even]?\n"
 				+ value;
 	}
 
