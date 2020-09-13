@@ -5,14 +5,16 @@ import java.util.Random;
 import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
-@Meta(skill="Avoid confusing strings with booleans")
-public class ConfuseStringForBooleanProblem implements Problem {
+@Meta(skill="Recognize literals of type long")
+public class RecognizeLongLiteralProblem
+		implements Problem, NumericExpression {
 
 	private String displayString;
 
 	@Override
-	public Problem generate(Random rng) {
-		displayString = "\"" + rng.nextBoolean() + "\"";
+	public RecognizeLongLiteralProblem generate(Random rng) {
+		displayString = (rng.nextBoolean() ? "" : "-")
+				+ rng.nextInt(100) + "L";
 		return this;
 	}
 
@@ -24,7 +26,12 @@ public class ConfuseStringForBooleanProblem implements Problem {
 
 	@Override
 	public String getAnswer() {
-		return "String";
+		return "long";
+	}
+
+	@Override
+	public String getNumericExpression() {
+		return displayString;
 	}
 
 }

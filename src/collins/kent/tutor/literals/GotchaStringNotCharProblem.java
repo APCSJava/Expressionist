@@ -5,17 +5,18 @@ import java.util.Random;
 import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
-@Meta(skill="Recognize literals of type boolean")
-public class RecognizeBooleanValueProblem implements Problem {
+@Meta(skill="Avoid confusing strings with chars")
+public class GotchaStringNotCharProblem implements Problem {
 
+	private static String chars = "aAcC       0123456789-/+%!?*";
 	private String displayString;
 
 	@Override
 	public Problem generate(Random rng) {
-		displayString = "" + rng.nextBoolean();
+		displayString = "\"" + chars.charAt(rng.nextInt(chars.length()))
+		+ "\"";
 		return this;
 	}
-
 
 	@Override
 	public String getStatement() {
@@ -25,7 +26,7 @@ public class RecognizeBooleanValueProblem implements Problem {
 
 	@Override
 	public String getAnswer() {
-			return "boolean";
+		return "String";
 	}
 
 }

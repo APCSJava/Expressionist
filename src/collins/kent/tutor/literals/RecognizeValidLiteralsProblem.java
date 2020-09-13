@@ -7,7 +7,7 @@ import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
 @Meta(skill="Recognize literals of a variety of types")
-public class RecognizeLiteralValueProblem implements Problem {
+public class RecognizeValidLiteralsProblem implements Problem {
 
 	// train students to recognize literal values of the following types:
 	// int, double, float, long, char, boolean, and String
@@ -18,18 +18,16 @@ public class RecognizeLiteralValueProblem implements Problem {
 	private static final int CHAR_TYPE = 4;
 	private static final int BOOLEAN_TYPE = 5;
 	private static final int STRING_TYPE = 6;
-	private static final int ERROR_TYPE = 7;
 
 	private static String chars = "aAcC       0123456789-/+%!?*";
 	private static String[] strings = { "cat", "dog", "fox", "ant",
 			"Bob" };
-	private static String operators = "+-*/%!";
 	private int selectedType;
 	private String displayString;
 
 	@Override
 	public Problem generate(Random rng) {
-		selectedType = rng.nextInt(ERROR_TYPE + 1);
+		selectedType = rng.nextInt(STRING_TYPE + 1);
 		displayString = buildLiteralString(rng, selectedType);
 		return this;
 	}
@@ -68,9 +66,6 @@ public class RecognizeLiteralValueProblem implements Problem {
 			else
 				return "\"" + buildLiteralString(r, FLOAT_TYPE + 1)
 						+ "\"";
-		case ERROR_TYPE:
-			return "" + operators
-					.charAt(r.nextInt(operators.length()));
 		}
 		return null;
 	}
@@ -98,19 +93,13 @@ public class RecognizeLiteralValueProblem implements Problem {
 			return "char";
 		case STRING_TYPE:
 			return "String";
-		case ERROR_TYPE:
-			return IFTutor.getErrorSymbol();
 		}
 		return null;
 	}
 
 	@Override
 	public String getFeedback(String response) {
-		if (selectedType==ERROR_TYPE) {
-		return "Incorrect.  "+displayString
-				+ " is not a value of any type, it is an operator.  The best response is "
-				+ getAnswer();
-		} else return Problem.super.getFeedback(response);
+		return Problem.super.getFeedback(response);
 	}
 
 }

@@ -5,17 +5,17 @@ import java.util.Random;
 import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
-@Meta(skill="Recognize literals of type int")
-public class RecognizeIntProblem implements Problem, NumericExpression {
+@Meta(skill="Recognize literals of type boolean")
+public class RecognizeBooleanLiteralProblem implements Problem {
 
 	private String displayString;
 
 	@Override
-	public RecognizeIntProblem generate(Random rng) {
-		displayString = (rng.nextBoolean() ? "" : "-")
-				+ rng.nextInt(100);
+	public Problem generate(Random rng) {
+		displayString = "" + rng.nextBoolean();
 		return this;
 	}
+
 
 	@Override
 	public String getStatement() {
@@ -25,12 +25,7 @@ public class RecognizeIntProblem implements Problem, NumericExpression {
 
 	@Override
 	public String getAnswer() {
-		return "int";
-	}
-	
-	@Override
-	public String getNumericExpression() {
-		return displayString;
+			return "boolean";
 	}
 
 }

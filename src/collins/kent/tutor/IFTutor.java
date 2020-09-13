@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.binary.OddEvenProblem;
 import collins.kent.tutor.binary.PositiveNegativeProblem;
+import collins.kent.tutor.literals.GotchaVariableNotLiteralProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -30,12 +30,13 @@ public class IFTutor {
 	public void ask(Problem p) {
 		System.out.println(p.getStatement());
 		String response = scanner.next().trim();
-		if (p.isCorrect(response)) {
+		boolean isCorrect = p.isCorrect(response);
+		if (isCorrect) {
 			correct.add(p);
 			System.out.println(
 					"Yes.  " + correct.size() + " correct.");
 		} else {
-			toReview.add(p);
+			addToReview(p, random);
 			System.out.println("*****  INCORRECT  *****\t"
 					+ p.getFeedback(response));
 		}
@@ -51,15 +52,15 @@ public class IFTutor {
 		for (int i = 0; i < numQuestions; i++) {
 			Problem p = null;
 			double num = tutor.random.nextDouble();
-			// SimpleLogical 30%
-			// SimpleNot 15%
-			// SimpleNotted 25%
-			// ThreeOperand 30%
-			if (num <0.5)
-				p = new OddEvenProblem(); 
+			// Arithmetic 20%
+			// Logical 20%
+			// Casting 20%
+			// Relational 20%
+			// Literals 10%
+			if (num < 1.0)
+				p = new GotchaVariableNotLiteralProblem();
 			else
 				p = new PositiveNegativeProblem();
-
 			p.generate(tutor.random);
 			tutor.ask(p);
 		}
@@ -68,20 +69,27 @@ public class IFTutor {
 			Problem missed = tutor.toReview.remove(0);
 			tutor.reviewed.add(missed); // so can retrieve it later, for
 										// analysis
-			Class<? extends Problem> c = missed.getClass();
-			try {
-				tutor.ask(c.newInstance().generate(tutor.random));
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
+			tutor.ask(missed);
+
 		}
 		System.out.println(name + " completed "
 				+ tutor.correct.size() + " questions correctly on "
 				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
 				+ " missed.");
 		System.out.println("Topic: Two's Complement Problems");
+	}
+
+	public void addToReview(Problem p, Random rand) {
+		Class<? extends Problem> c = p.getClass();
+		System.out.println("Missed: " + p.getClass());
+		System.out.println("Adding to review: " + c);
+		try {
+			toReview.add(c.newInstance().generate(rand));
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static String getExceptionSymbol() {

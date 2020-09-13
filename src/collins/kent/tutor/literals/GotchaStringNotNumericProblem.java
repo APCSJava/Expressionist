@@ -6,7 +6,7 @@ import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
 @Meta(skill="Avoid confusing strings with numeric types")
-public class ConfuseStringForNumericProblem implements Problem {
+public class GotchaStringNotNumericProblem implements Problem {
 
 	private String displayString;
 
@@ -15,12 +15,12 @@ public class ConfuseStringForNumericProblem implements Problem {
 		String numeric = null;
 		double rand = rng.nextDouble();
 		if (rand<0.25) {
-			numeric = new RecognizeDoubleProblem().generate(rng).getNumericExpression();
+			numeric = new RecognizeDoubleLiteralProblem().generate(rng).getNumericExpression();
 		} else if (rand < 0.5) {
-			numeric = new RecognizeFloatProblem().generate(rng).getNumericExpression();
+			numeric = new RecognizeFloatLiteralProblem().generate(rng).getNumericExpression();
 		} else if (rand <0.75) {
-			numeric = new RecognizeLongProblem().generate(rng).getNumericExpression();
-		} else numeric = new RecognizeIntProblem().generate(rng).getNumericExpression();
+			numeric = new RecognizeLongLiteralProblem().generate(rng).getNumericExpression();
+		} else numeric = new RecognizeIntLiteralProblem().generate(rng).getNumericExpression();
 		displayString = "\""+numeric+"\"";
 		return this;
 	}

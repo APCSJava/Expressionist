@@ -4,17 +4,15 @@ import java.util.Random;
 
 import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
-
-@Meta(skill="Recognize literals of type float")
-public class RecognizeFloatProblem implements Problem, NumericExpression {
+@Meta(skill="Recognize literals of type double")
+public class RecognizeDoubleLiteralProblem implements Problem, NumericExpression {
 
 	private String displayString;
 
 	@Override
-	public RecognizeFloatProblem generate(Random rng) {
+	public RecognizeDoubleLiteralProblem generate(Random rng) {
 		displayString = (rng.nextBoolean() ? "" : "-")
-				+ rng.nextInt(100) + "." + rng.nextInt(100)
-				+ (rng.nextBoolean() ? "F" : "f");
+				+ rng.nextInt(100) + "." + rng.nextInt(100);
 		return this;
 	}
 
@@ -26,11 +24,12 @@ public class RecognizeFloatProblem implements Problem, NumericExpression {
 
 	@Override
 	public String getAnswer() {
-		return "float";
+		return "double";
 	}
 
 	@Override
 	public String getNumericExpression() {
 		return displayString;
 	}
+
 }

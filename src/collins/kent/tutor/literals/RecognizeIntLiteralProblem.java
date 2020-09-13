@@ -5,16 +5,15 @@ import java.util.Random;
 import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
-@Meta(skill="Recognize literals of type long")
-public class RecognizeLongProblem
-		implements Problem, NumericExpression {
+@Meta(skill="Recognize literals of type int")
+public class RecognizeIntLiteralProblem implements Problem, NumericExpression {
 
 	private String displayString;
 
 	@Override
-	public RecognizeLongProblem generate(Random rng) {
+	public RecognizeIntLiteralProblem generate(Random rng) {
 		displayString = (rng.nextBoolean() ? "" : "-")
-				+ rng.nextInt(100) + "L";
+				+ rng.nextInt(100);
 		return this;
 	}
 
@@ -26,9 +25,9 @@ public class RecognizeLongProblem
 
 	@Override
 	public String getAnswer() {
-		return "long";
+		return "int";
 	}
-
+	
 	@Override
 	public String getNumericExpression() {
 		return displayString;

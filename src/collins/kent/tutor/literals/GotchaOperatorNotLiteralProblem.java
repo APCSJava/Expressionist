@@ -7,13 +7,13 @@ import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
 @Meta(skill="Recognize that operators are not values")
-public class RecognizeOperatorProblem implements Problem {
+public class GotchaOperatorNotLiteralProblem implements Problem {
 
 	private static String operators = "+-*/%!";
 	private String displayString;
 
 	@Override
-	public RecognizeOperatorProblem generate(Random rng) {
+	public GotchaOperatorNotLiteralProblem generate(Random rng) {
 		displayString = ""
 				+ operators.charAt(rng.nextInt(operators.length()));
 		return this;
@@ -29,7 +29,7 @@ public class RecognizeOperatorProblem implements Problem {
 	public String getAnswer() {
 		return IFTutor.getErrorSymbol();
 	}
-
+	
 	@Override
 	public String getFeedback(String response) {
 		return "Incorrect.  " + displayString

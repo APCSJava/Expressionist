@@ -5,18 +5,20 @@ import java.util.Random;
 import collins.kent.tutor.Problem;
 import collins.kent.tutor.Meta;
 
-@Meta(skill="Recognize literals of type char")
-public class RecognizeCharProblem implements Problem {
-
-	private static String chars = "aAcC       0123456789-/+%!?*";
+@Meta(skill="Recognize literals of type String")
+public class RecognizeStringLiteralProblem implements Problem {
+	
+	private static String[] strings = { "cat", "dog", "fox", "ant",
+			"Bob" };
 	private String displayString;
 
 	@Override
 	public Problem generate(Random rng) {
-		displayString = "'"
-				+ chars.charAt(rng.nextInt(chars.length())) + "'";
+		displayString = "\"" + strings[rng.nextInt(strings.length)]
+				+ "\"";
 		return this;
 	}
+
 
 	@Override
 	public String getStatement() {
@@ -26,7 +28,6 @@ public class RecognizeCharProblem implements Problem {
 
 	@Override
 	public String getAnswer() {
-		return "char";
+		return "String";
 	}
-
 }
