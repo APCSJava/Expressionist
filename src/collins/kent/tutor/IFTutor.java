@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.binary.PositiveNegativeProblem;
-import collins.kent.tutor.literals.GotchaVariableNotLiteralProblem;
+import collins.kent.tutor.strings.SubstringIndexErrorProblem;
+import collins.kent.tutor.strings.SubstringLengthSingleArgumentProblem;
+import collins.kent.tutor.strings.SubstringLengthTwoArgumentProblem;
+import collins.kent.tutor.strings.SubstringSingleIndexProblem;
+import collins.kent.tutor.strings.SubstringTwoIndexProblem;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -57,10 +60,16 @@ public class IFTutor {
 			// Casting 20%
 			// Relational 20%
 			// Literals 10%
-			if (num < 1.0)
-				p = new GotchaVariableNotLiteralProblem();
+			if (num < 0.2)
+				p = new SubstringIndexErrorProblem();
+			else if (num < 0.4) 
+				p = new SubstringLengthSingleArgumentProblem();
+			else if (num < 0.6) 
+				p = new SubstringLengthTwoArgumentProblem();
+			else if (num < 0.8) 
+				p = new SubstringSingleIndexProblem();
 			else
-				p = new PositiveNegativeProblem();
+				p = new SubstringTwoIndexProblem();
 			p.generate(tutor.random);
 			tutor.ask(p);
 		}
@@ -76,13 +85,13 @@ public class IFTutor {
 				+ tutor.correct.size() + " questions correctly on "
 				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
 				+ " missed.");
-		System.out.println("Topic: Two's Complement Problems");
+		System.out.println("Topic: String Substring Problems");
 	}
 
 	public void addToReview(Problem p, Random rand) {
 		Class<? extends Problem> c = p.getClass();
-		System.out.println("Missed: " + p.getClass());
-		System.out.println("Adding to review: " + c);
+		//System.out.println("Missed: " + p.getClass());
+		//System.out.println("Adding to review: " + c);
 		try {
 			toReview.add(c.newInstance().generate(rand));
 		} catch (InstantiationException e) {

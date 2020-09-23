@@ -9,6 +9,7 @@ public class RandomStringProblem implements Problem {
 	Problem actual;
 	Class[] classes = { StringIndexOfProblem.class,
 			StringLengthProblem.class,
+			StringCompareToProblem.class,
 			SubstringIndexErrorProblem.class,
 			SubstringLengthSingleArgumentProblem.class,
 			SubstringLengthTwoArgumentProblem.class,
