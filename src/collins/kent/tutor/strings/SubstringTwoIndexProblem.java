@@ -23,7 +23,12 @@ public class SubstringTwoIndexProblem implements Problem {
 	public Problem generate(Random rng) {
 		s=StringSource.getInstance().getRandomWord(rng, 4, 7);
 		from = rng.nextInt(s.length()+1); // occasionally, ask about final index
-		to = from + rng.nextInt(s.length() - from);
+		from /= rng.nextBoolean() ? 1 : 2; // favor lower indices
+		int maxOffset = s.length() - from; // 
+		to = from + rng.nextInt(Math.max(0, maxOffset)+1);
+		if (from == to && rng.nextBoolean()) { // not so many where they match
+			if (to < s.length()) to++;
+		}
 		return this;
 	}
 

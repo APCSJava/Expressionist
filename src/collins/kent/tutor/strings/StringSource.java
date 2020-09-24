@@ -30,7 +30,7 @@ public final class StringSource {
 //	List<String> words = Arrays.asList(new String[] {"ace", "duo"});
 	List<String> words = Arrays.asList(new String[] { "ace", "duo",
 			"one", "two", "trio", "play", "good", "mama", "papa",
-			"widen", "quick", "begin", "Poppy", "Acacia", "narrow",
+			"widen", "quick", "begin", "Fancy", "Acacia", "narrow",
 			"playful", "creative", "brilliant", "Satisfied",
 			"successful" });
 
