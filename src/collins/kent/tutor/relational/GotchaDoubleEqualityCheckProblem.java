@@ -15,8 +15,8 @@ public class GotchaDoubleEqualityCheckProblem implements Problem {
 	String s5 = "0.3 < 0.1 + 0.2"; // true
 	String[] options = { s1, s2, s3, s4, s5 };
 	int choice;
-	String f1 = "An explanation is appropriate. This expression evaluates false.  Unlike integers, doubles are inexact values. Use comparison operators carefully.";
-	String f2 = "An explanation is appropriate. This expression evaluates true.  Unlike integers, doubles are inexact values. Use comparison operators carefully.";
+	String f1 = "An explanation is appropriate. While this particular expression evaluates to false, doubles are inexact values and might not yield the expected result.";
+	String f2 = "An explanation is appropriate. While this particular expression evaluates to true, doubles are inexact values and might not yield the expected result.";
 	String[] feedback = { f1, f1, f1, f2, f2 };
 
 	@Override

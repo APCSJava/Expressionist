@@ -34,7 +34,7 @@ public class GotchaAssignVersusCompareProblem implements Problem {
 
 	@Override
 	public String getFeedback(String s) {
-		return "Incorrect.  An assignment operator has been used instead of the equality operator.  This will be detected by the compiler.";
+		return "Incorrect.  An assignment operator has been used instead of the equality operator.  This will be detected and flagged as an error by the compiler.";
 	}
 
 }

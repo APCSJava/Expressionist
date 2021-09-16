@@ -9,7 +9,7 @@ import collins.kent.tutor.Problem;
 @Meta(skill="Recognize that variables are not literals")
 public class GotchaVariableNotLiteralProblem implements Problem {
 
-	private static String[] strings = { "d", "dog", "fox", "ant",
+	private static String[] strings = { "d", "i", "myLiteral", "row", "col",
 	"num1", "x" };
 	private String displayString;
 
@@ -34,7 +34,7 @@ public class GotchaVariableNotLiteralProblem implements Problem {
 	@Override
 	public String getFeedback(String response) {
 		return "Incorrect.  " + displayString
-				+ " is not a literal value.  The best response is "
+				+ " might be used as a variable, but it is not a literal value.  The best response is "
 				+ getAnswer();
 	}
 
