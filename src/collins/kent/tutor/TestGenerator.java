@@ -83,7 +83,13 @@ public class TestGenerator {
 
         Collections.shuffle(tutor.toAsk);
 
-        System.out.println(tutor.toAsk.size() + " questions await.  Give the correct answer or 'e' (without quotes) in situations where an error is present or that would benefit from an explanation.");
+        String instructions = tutor.toAsk.size() + " questions await.  Answer or evaluate each prompt. \n";
+        instructions += "Use the response 'e' (no quotes) for items that: \n\t";
+        instructions += "- would produce an error, or \n\t";
+        instructions += "- have no specific correct answer, or \n\t";
+        instructions += "- would otherwise benefit from an explanation.\n";
+
+        System.out.println(instructions);
         for (int i = 0; i < tutor.toAsk.size(); i++) {
             System.out.println("Question " + (i + 1) + ".");
             tutor.ask(tutor.toAsk.get(i));
