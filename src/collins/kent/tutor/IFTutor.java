@@ -5,11 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import collins.kent.tutor.strings.SubstringIndexErrorProblem;
-import collins.kent.tutor.strings.SubstringLengthSingleArgumentProblem;
-import collins.kent.tutor.strings.SubstringLengthTwoArgumentProblem;
-import collins.kent.tutor.strings.SubstringSingleIndexProblem;
-import collins.kent.tutor.strings.SubstringTwoIndexProblem;
+import collins.kent.tutor.strings.*;
 
 /***
  * Creates drills to strengthen student reasoning about expressions across
@@ -53,23 +49,18 @@ public class IFTutor {
 		System.out.println("How many questions?");
 		int numQuestions = scanner.nextInt();
 		for (int i = 0; i < numQuestions; i++) {
-			Problem p = null;
-			double num = tutor.random.nextDouble();
-			// Arithmetic 20%
-			// Logical 20%
-			// Casting 20%
-			// Relational 20%
-			// Literals 10%
-			if (num < 0.2)
-				p = new SubstringIndexErrorProblem();
-			else if (num < 0.4) 
-				p = new SubstringLengthSingleArgumentProblem();
-			else if (num < 0.6) 
-				p = new SubstringLengthTwoArgumentProblem();
-			else if (num < 0.8) 
-				p = new SubstringSingleIndexProblem();
-			else
-				p = new SubstringTwoIndexProblem();
+			Problem p = new RandomStringProblem();
+//			double num = tutor.random.nextDouble();
+//			if (num < 0.2)
+//				p = new SubstringIndexErrorProblem();
+//			else if (num < 0.4)
+//				p = new SubstringLengthSingleArgumentProblem();
+//			else if (num < 0.6)
+//				p = new SubstringLengthTwoArgumentProblem();
+//			else if (num < 0.8)
+//				p = new SubstringSingleIndexProblem();
+//			else
+//				p = new SubstringTwoIndexProblem();
 			p.generate(tutor.random);
 			tutor.ask(p);
 		}
@@ -85,7 +76,7 @@ public class IFTutor {
 				+ tutor.correct.size() + " questions correctly on "
 				+ LocalDateTime.now() + ".\n" + tutor.reviewed.size()
 				+ " missed.");
-		System.out.println("Topic: String Substring Problems");
+		System.out.println("Topic: Mixed String Problems");
 	}
 
 	public void addToReview(Problem p, Random rand) {
