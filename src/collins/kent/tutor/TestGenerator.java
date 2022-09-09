@@ -90,12 +90,15 @@ public class TestGenerator {
         instructions += "- would otherwise benefit from an explanation.\n";
 
         System.out.println(instructions);
+        LocalDateTime start = LocalDateTime.now();// begin
+
         for (int i = 0; i < tutor.toAsk.size(); i++) {
             System.out.println("Question " + (i + 1) + ".");
             tutor.ask(tutor.toAsk.get(i));
         }
-        System.out.println(name + " completed the assessment at "
-                + LocalDateTime.now() + ".\n" + "Number Missed: "
+
+        System.out.println(name + " started at "+timeString(start)+ " and completed at "
+                + timeString(LocalDateTime.now()) + "\n" + "Number Missed: "
                 + (tutor.numMissed) + " out of " + tutor.toAsk.size());
         if (tutor.numMissed > 0) {
             System.out.println("Missed question types: ");
@@ -111,6 +114,10 @@ public class TestGenerator {
 
     public static String getErrorSymbol() {
         return "e";
+    }
+
+    public static String timeString(LocalDateTime time) {
+        return time.getMonth()+"-" + time.getDayOfMonth()+" "+time.getHour()+":"+time.getMinute()+":"+time.getSecond();
     }
 
     public void ask(Problem p) {
