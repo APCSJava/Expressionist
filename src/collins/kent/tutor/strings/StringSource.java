@@ -19,8 +19,8 @@ public final class StringSource {
     List<String> words = Arrays.asList(new String[]{
             "ASL", "BBC", "cat", "dog", "cow", "ant",
             "game", "song", "play", "xbox", "Zoom", "ABBA",
-            "chill", "jolly", "quick", "smart", "viola", "cello", "flute", "brass", "music",
-            "joyous", "candid", "honest",
+            "chill", "jolly", "quick", "smart", "viola", "cello", "Kerem","flute", "carrot", "music",
+            "joyous", "candid", "honest", "London", "AP CSA",
             "playful", "creative"});
     List<String> phrases = Arrays
             .asList(new String[]{"Love's Labours Lost",
