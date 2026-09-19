@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public final class StringSource {
 
     private static StringSource instance;
-    List<String> words = Arrays.asList(new String[]{
+    private static List<String> words = Arrays.asList(new String[]{
             "ASL", "BBC", "cat", "dog", "cow", "ant",
             "game", "song", "play", "xbox", "Zoom", "ABBA",
             "chill", "jolly", "quick", "smart", "viola", "cello", "Kerem","flute", "carrot", "music",
