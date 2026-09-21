@@ -30,7 +30,7 @@ public class IFTutor {
 
     public void ask(Problem p) {
         System.out.println(p.getStatement());
-        String response = scanner.next().trim();
+        String response = scanner.nextLine().trim();
         boolean isCorrect = p.isCorrect(response);
         if (isCorrect) {
             correct.add(p);
@@ -51,7 +51,7 @@ public class IFTutor {
         System.out.println("Please enter your name: ");
         String name = scanner.nextLine().trim();
         System.out.println("How many questions?");
-        int numQuestions = scanner.nextInt();
+        int numQuestions = Integer.parseInt(scanner.nextLine().trim());
         System.out.println("Today's assessment will have " + numQuestions + " random string questions.");
 
         LocalDateTime startTime = LocalDateTime.now();
